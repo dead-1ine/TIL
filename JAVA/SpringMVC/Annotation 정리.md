@@ -10,4 +10,8 @@
 
 @Resource
 
-### Session & Cookie
+@Autowired
+
+@Component
+
+### Session & Cookie 개념
