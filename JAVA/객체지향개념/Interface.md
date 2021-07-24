@@ -1,6 +1,5 @@
 
-추상메서드의 집합
-설계도
+- 인터페이스는 추상메서드의 집합, 설계도라고 한다.
 
 ```java
 interface I {
@@ -16,6 +15,11 @@ class B implements I {
 ```
 
 - 인터페이스의 장점
+	- 개발시간을 단축시킬 수 있다.
+	- 표준화가 가능하다.
+	- 서로 관계없는 클래스들에게 관계를 맺어 줄 수 있다.
+	- 독립적인 프로그래밍이 가능하다.
+
 	1. 두 대상(객체)간의 ‘연결, 대화, 소통’을 돕는 ‘중간역할’을 한다.
 	2. 선언과 구현을 분리시킬 수 있게 한다.
 	3. 느슨한 결합
@@ -65,6 +69,43 @@ class B implements I {
 		}	// repair(Repairable r)
 		```
 
-### 다형성(Polymorphism) - 매우 중요
-- 여러 형태를 가질 수 있다.
-- 조상 타입 참조 변수로 자손 타입 객체를 다루는 것
+##### 인터페이스의 상속
+- 인터페이스는 인터페이스로만 상속받을 수 있다.
+- 클래스와 달리 다중상속이 가능
+
+```java
+interface Movable {
+	/* 지정된 위치(x, y)로 이동하는 기능의 메서드 */
+	void move(int x, int y);
+}
+
+interface Attackable {
+	/* 지정된 대상(u)을 공격하는 기능의 메서드 */
+	void attack(Unit u);
+}
+
+interface Fightable extends Movable, Attackable { }
+```
+
+- 클래스의 상속과 마찬가지로 자손 인터페이스는 조상 인터페이스에 정의된 멤버를 모두 상속받는다.
+
+##### 인터페이스를 이용한 다형성
+
+```java
+// 인터페이스 Fightable을 클래스 Fighter가 구현했을 때, Fighter인스턴스를 Fightable타입의 참조변수로 참조하는 것이 가능하다.
+Fightable f = (Fightable) new Fighter();
+Fightable f = new Fighter();
+
+// 인터페이스는 다음과 같이 메서드의 매개변수의 타입으로도 사용될 수 있다.
+void attack(Fightable f) {
+	// ...
+}
+
+// 인터페이스 타입의 매개변수가 갖는 의미는 메서드 호출 시 해당 인터페이스를 구현한 클래스의 인스턴스를 매개변수로 제공해야 한다는 것이다.
+class Fighter extends Unit implements Fightable {
+	public void move(int x, int y) { /* 생략 */ }
+	public void attack(Fightable f) { /* 생략 */ }
+}
+
+// 
+```
