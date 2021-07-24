@@ -39,7 +39,7 @@ class AnonymousClass {
 }
 ```
 
-```
+```java
 // 이 클래스를
 class Example {
 	public static void main(String[] args) {
