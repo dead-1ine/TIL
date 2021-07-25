@@ -61,3 +61,46 @@ void method() throws Exception1, Exception2, ... ExceptionN {
 void method() throws Exception {
 }
 ```
+
+##### 예외 되던지기(exception re-throwing)
+```java
+main() {
+	try {
+		method1();
+	} catch (Exception e) {
+		Sout("main메서드에서 예외가 처리되었습니다.");
+	}
+}
+
+method1() throws Exception {
+	try {
+		throw new Exception();
+	} catch (Exception e) {
+		Sout("method1메서드에서 예외가 처리되었습니다.");
+		throw e;	// 다시 예외를 발생시킨다.
+	}
+}
+```
+
+##### 연결된 예외(chained exception) 
+> 1. 여러가지 예외를 하나의 큰 분류 예외로 묶어 다루기 위해 사용함
+> 2. checked예외를 unchecked예외로 바꿀 수 있도록 하기 위함
+> ```java
+> static void startInstall() throws SpaceException {
+> 	if(!enoughSpace())	// 충분한 설치 공간이 없다면
+> 		throw new SpaceException("설치 공간이 부족합니다.");
+> 	if(!enoughMemory())	// 충분한 메모리가 없다면
+> 		throw new RuntimeException(new MemoryException("메모리 부족");
+> } // startInstall 메서드 끝
+> 
+> // MemoryException은 Exception의 자손이므로 반드시 예외를 처리해야 하는데, 이 예외를 RuntimeException으로 감쌌기 때문에 unchecked예외가 되었다.
+> // 그래서 더 이상 startInstall()의 선언부에 MemoryException을 선언하지 않아도 된다.
+> 
+> // RuntimeException(Throwable cause) // 원인 예외를 등록하는 생성자
+> ```
+
+
+> ```java
+> Throwable initCause(Throwable cause) // 지정한 예외를 원인 예외로 등록
+> Throwable getCause()	// 원인 예외를 반환
+> ```
