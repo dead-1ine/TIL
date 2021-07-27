@@ -29,7 +29,7 @@
 ##### 예외 발생시키기
 > 키워드 ‘throw’를 사용해 고의로 예외를 발생시킬 수 있다.
 > > 방법 : 
-> > > 1. 연산자 new를 이용해 발생시키려는 예외 클래스의 객체를 만든 다음 
+> > > 1. 연산자 new를 이용해 발생시키려는 예외 클래스의 객체를 만든 다음
 > > > > ```java
 > > > > Exception e = new Exception("고의로 발생시킴");
 > > > > ```
@@ -82,7 +82,7 @@ method1() throws Exception {
 }
 ```
 
-##### 연결된 예외(chained exception) 
+##### 연결된 예외(chained exception)
 > 1. 여러가지 예외를 하나의 큰 분류 예외로 묶어 다루기 위해 사용함
 > 2. checked예외를 unchecked예외로 바꿀 수 있도록 하기 위함
 > ```java
@@ -104,3 +104,6 @@ method1() throws Exception {
 > Throwable initCause(Throwable cause) // 지정한 예외를 원인 예외로 등록
 > Throwable getCause()	// 원인 예외를 반환
 > ```
+
+
+#exception #java
