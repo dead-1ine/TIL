@@ -22,44 +22,43 @@
 	```
 
 ---- 
-##### 2. Insert Documents on MongoDB
+#### 2. Insert Documents on MongoDB
 
 1. Document 만들기
 	- Document : 문서를 만들기 위한 클래스
-	```java
-	Document doc = new Document("name", "MongoDB")
-					.append("type", "database")
-					.append("count", 1);
+		```java
+		Document doc = new Document("name", "MongoDB")
+						.append("type", "database")
+						.append("count", 1);
 
-	// 값이 배열 형태로 존재할 경우 asList() 메소드를 이용
-	doc.append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"));
+		// 값이 배열 형태로 존재할 경우 asList() 메소드를 이용
+		doc.append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"));
 
-	// 하위 필드가 존재할 경우 new Document 객체를 만들어 필드의 값으로 넣음
-	doc.append("info", new Document("x", 203).append("y", 102));
+		// 하위 필드가 존재할 경우 new Document 객체를 만들어 필드의 값으로 넣음
+		doc.append("info", new Document("x", 203).append("y", 102));
 
-	/* 위 내용으로 만든 JSON
-		{
-			"name" : "MongoDB",
-			"type" : "database",
-			"count" : 1,
-			"versions" : [ "v3.2", "v3.0", "v2.6" ],
-			"info" : { x : 203, y : 102 }
-		}
-	*/
-	```
+		/* 위 내용으로 만든 JSON
+			{
+				"name" : "MongoDB",
+				"type" : "database",
+				"count" : 1,
+				"versions" : [ "v3.2", "v3.0", "v2.6" ],
+				"info" : { x : 203, y : 102 }
+			}
+		*/
+		```
 
 2. Insert Document
 	- insertOne(Document) : 하나의 문서를 저장
-	```java
-	collection.insertOne(doc);
-	```
+		```java
+		collection.insertOne(doc);
+		```
 
-3. Insert Documents
 	- insertMany(ArrayList\<Document\>) : 여러 개의 문서를 저장
-	```java
-	List<Document> documents = new ArrayList<>();
-	for (int i = 0; i < 100; i++) {
-		documents.add(new Document("i", i));
-	}
-	collection.insertMany(documents);
-	```
+		```java
+		List<Document> documents = new ArrayList<>();
+		for (int i = 0; i < 100; i++) {
+			documents.add(new Document("i", i));
+		}
+		collection.insertMany(documents);
+		```
