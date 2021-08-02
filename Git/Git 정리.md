@@ -5,7 +5,7 @@
 	-  Add 취소
 		```Terminal
 			git reset HEAD fileName
-			```
+		```
 		- fileName이 없다면 전체 취소
 
 	- Commit 취소 및 변경
@@ -26,4 +26,4 @@
 		이 명령을 사용하면 자신의 local 내용을 remote에 강제로 덮어쓰기하기 때문에 주의해야 함
 		`git reflog`
 		`git log -g`
-	- 
+	\- 
