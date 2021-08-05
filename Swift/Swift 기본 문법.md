@@ -22,10 +22,10 @@ Reference는 Stack에 주소를 저장하고 값을 Heap에 저장함
 
 - 스위프트에서는 변수나 상수를 선언할 때 특정 타입을 명시하지 않아도 컴파일러가 할당된 값을 기준으로 타입을 결정한다.
 
-  ```Swift
-  // 타입을 지정하지 않았으나 타입 추론을 통해 name은 String 타입으로 선언된다.
-  var name = "Test"
-  ```
+```Swift
+// 타입을 지정하지 않았으나 타입 추론을 통해 name은 String 타입으로 선언된다.
+var name = "Test"
+```
 
 ### 타입의 별칭
 
@@ -33,20 +33,20 @@ Reference는 Stack에 주소를 저장하고 값을 Heap에 저장함
 
 - 그 후 기본 타입과 이후 추가한 별칭을 모두 사용할 수 있다.
 
-  ```swift
-  typealias MyInt = Int
-  typealias YourInt = Int
-  typealias MyDouble = Double
+```swift
+typealias MyInt = Int
+typealias YourInt = Int
+typealias MyDouble = Double
   
-  let age: MyInt = 100		// MyInt는 Int의 또 다른 이름이다.
-  var year: YourInt = 2080	// YourInt도 Int의 또 다른 이름이다.
+let age: MyInt = 100		// MyInt는 Int의 또 다른 이름이다.
+var year: YourInt = 2080	// YourInt도 Int의 또 다른 이름이다.
   
-  // MyInt도, YourInt도 Int이기 때문에 같은 타입으로 취급합니다.
-  year = age
+// MyInt도, YourInt도 Int이기 때문에 같은 타입으로 취급합니다.
+year = age
   
-  let month: Int = 7		// 물론 기존 Int도 사용 가능
-  let percentage: MyDouble = 99.9		// Int 외의 다른 자료형도 모두 별칭 사용 가능
-  ```
+let month: Int = 7		// 물론 기존 Int도 사용 가능
+let percentage: MyDouble = 99.9		// Int 외의 다른 자료형도 모두 별칭 사용 가능
+```
 
 ----
 
@@ -91,14 +91,14 @@ print("이름: \(person.0), 나이: \(person.1), 신장: \(person.2)")
 
 - typealias - Tuple : 타입 별칭을 통해 더 깔끔하고 안전하게 코드 작성
 
-  ```swift
-  typealias PersonTuple = (name: String, age: Int, height: Double)
+```swift
+typealias PersonTuple = (name: String, age: Int, height: Double)
   
-  let yang: PersonTuple = ("yang", 100, 180)
-  let eric: PersonTuple = ("Eric", 120, 182)
+let yang: PersonTuple = ("yang", 100, 180)
+let eric: PersonTuple = ("Eric", 120, 182)
   
-  print("이름: \(yang.name), 나이: \(yang.age), 신장: \(yang.height)")
-  ```
+print("이름: \(yang.name), 나이: \(yang.age), 신장: \(yang.height)")
+```
 
 ----
 
@@ -106,7 +106,9 @@ print("이름: \(person.0), 나이: \(person.1), 신장: \(person.2)")
 
 > 스위프트에는 Array, Dictionary, Set 등이 있다.
 
-	#### 4.4.1 Array
+```
+#### 4.4.1 Array
+```
 
 > 배열은 같은 타입의 데이터를 일렬로 나열한 후 순서대로 저장하는 형태의 컬렉션 타입이다.
 
@@ -130,33 +132,33 @@ print(names.count)	// 4
 
 - 배열의 사용
 
-  ``` swift
-  print(names[2])	// admin
-  names[2] = "jenny"
-  print(names[2])	// jenny
-  print(names[4]) // 오류! 인덱스의 범위를 벗어남
+```swift
+print(names[2])	// admin
+names[2] = "jenny"
+print(names[2])	// jenny
+print(names[4]) // 오류! 인덱스의 범위를 벗어남
   
-  names[4] = "elsa"	// 오류! 인덱스의 범위를 벗어남
-  names.append("elsa")	// 마지막에 elsa가 추가됨
-  names.append(contentsOf: ["john", "max"]) 		// 맨 마지막에 john과 max가 추가됨
-  names.insert("happy", at: 2)	// 인덱스 2에 삽입됨
-  // 인덱스 5의 위치에 jihee, minsoo가 삽입됨
-  names.insert(contentsOf: ["jihee", "minsoo"], at: 5)
+names[4] = "elsa"	// 오류! 인덱스의 범위를 벗어남
+names.append("elsa")	// 마지막에 elsa가 추가됨
+names.append(contentsOf: ["john", "max"]) 		// 맨 마지막에 john과 max가 추가됨
+names.insert("happy", at: 2)	// 인덱스 2에 삽입됨
+// 인덱스 5의 위치에 jihee, minsoo가 삽입됨
+names.insert(contentsOf: ["jihee", "minsoo"], at: 5)
   
-  print(names.index(of: "yang")) // 0
-  print(names.index(of: "christal")) // nil
-  print(names.first)	// yang
-  print(names.last) // max
+print(names.index(of: "yang")) // 0
+print(names.index(of: "christal")) // nil
+print(names.first)	// yang
+print(names.last) // max
   
-  let firstItem: String = names.removeFirst()
-  let lastItem: String = names.removeLast()
-  let indexZeroItem: String = names.remove(at: 0)
+let firstItem: String = names.removeFirst()
+let lastItem: String = names.removeLast()
+let indexZeroItem: String = names.remove(at: 0)
   
-  print(firstItem)	// yang
-  print(lastItem)	// max
-  print(indexZeroItem)	// chulsoo
-  print(names[1 ... 3]) // ["jenny", "yang", "jihee"]
-  ```
+print(firstItem)	// yang
+print(lastItem)	// max
+print(indexZeroItem)	// chulsoo
+print(names[1 ... 3]) // ["jenny", "yang", "jihee"]
+```
 
   
 
@@ -184,7 +186,7 @@ print(names.count)	// 4
 > - 자신이 참조하는 인스턴스의 retain count를 증가시키지 않는다. release도 발생하지 않음
 > - 자신이 참조는 하지만 weak 메모리를 해제시킬 수 있는 권한은 다른 클래스에 있다.
 > - 메모리가 해제될 경우 자동으로 reference가 _nil로 초기화된다._
-> - _weak 속성을 사용하는 객체는 항상 Optional타입이어야 한다._
+> - ###### weak 속성을 사용하는 객체는 항상 Optional타입이어야 한다.
 > ```swift
 > weak var test = Test()	// 객체가 생성되지만 weak이기 때문에 바로 객체가 해제되어 nil이 됨
 > ```
@@ -208,9 +210,101 @@ print(names.count)	// 4
 - weak : 대표적으로 retain cycle에 의해 메모리가 누수되는 문제를 막기 위해 사용한다. delegate 패턴이 있다.
 - unowned : 객체의 라이프사이클이 명확하고 개발자에 의한 제어 가능이 명확한 경우, weak Optional 타입 대신 사용하여 보다 간결한 코딩이 가능하다.                                               
 ----
-#### Closure Capture
-> 클로저 캡처란 클로저가 매개변수나 지역변수가 아닌 외부의 Context를 사용하기 위해 주변 Context를 참조하는 것(Capturing by reference)입니다.
-> 클로저는 정의된 Context 내의 상수나 변수에 대한 참조를 캡처하고 저장할 수 있다.
+# Closure
+
+> **클로저란 ?**
+>
+> - 사용자의 **코드 안에서 전달되어 사용할 수 있는 로직을 가진** '중괄호'로 구분된 코드의 블럭이며, **일급 객체의 역할**을 할 수 있다.
+> - **일급 객체는 전달 인자로 보낼 수 있고, 변수/상수 등으로 저장하거나 전달할 수 있으며, 함수의 반환 값이 될 수도 있다.**
+> - **참조 타입**이다.
+> - 함수는 클로저의 한 형태로, 이름이 있는 클로저이다.
+
+
+
+#### 클로저의 표현방식
+
+```Swift
+{ (parameter) -> returnType in
+	// Logic
+}
+```
+
+
+
+### 예시 : Inline Closure
+
+> 함수가 따로 정의된 형태가 아닌 인자로 들어가 있는 형태의 클로저
+
+```Swift
+let reverseNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
+                                    return s1 > s2 })
+```
+
+
+
+## 클로저의 축약
+
+### 1. 타입 생략
+
+> 클로저는 다양한 형태로의 축약이 가능하다
+>
+> - 코드의 모호성을 피하기 위해 타입을 명시하는 것이 좋을 때도 있다.
+
+```Swift
+let reverseNames = names.sorted(by: { s1, s2 in return s1 > s2 })
+```
+
+### 2. 반환 타입 생략
+
+> 반환 키워드를 생략할 수 있다.
+
+```Swift
+let reverseNames = names.sorted(by : { s1, s2 in s1 > s2 })
+```
+
+### 3. 파라미터명 생략
+
+> 파라미터 명을 축약해서 사용할 수 있다
+>
+> - 인자의 표기는 $0부터 순서대로
+
+```Swift
+let reversedNames = names.sorted(by : { $0 > $1 })
+```
+
+### 4.연산자 메소드
+
+> 연산자를 사용할 수 있는 타입의 경우 연산자만 남길 수 있다.
+
+```Swift
+let reversedNames = names.sorted(by : > )
+```
+
+
+
+## 후행 클로저
+
+> 인자로 클로저를 넣기에 길이가 너무 길다면 후행 클로저를 통해 함수의 뒤에 위치시킬 수 있다.
+
+```Swift
+let reversedNames = names.sorted() { $0 > $1 }
+```
+
+> 함수의 마지막 인자가 클로저이고, 후행 클로저를 사용하면 괄호"()"를 생략할 수 있다.
+
+```Swift
+let reversedNames = names.sorted { $0 > $1 }
+let reversedNames = names.sorted { (s1: String, s2: String) -> Bool in 
+                                 return s1 > s2 }
+```
+
+
+
+## Closure Capture
+
+> 클로저는 특정 문맥의 상수나 변수의 값을 캡쳐할 수 있다.
+>
+> 즉, 원본 값이 사라져도 클로저의 Body 안에서 그 값을 활용할 수 있다.
 
 ```swift
 func makeIncrementer(forIncrement amount: Int) -> () -> Int {
@@ -221,9 +315,71 @@ func makeIncrementer(forIncrement amount: Int) -> () -> Int {
 		}
 	return incrementer
 }
+
+let plusTen = makeIncrementer(forIncrement: 10)
+let plusSeven = makeIncrementer(forIn)
+
+// 함수가 각각 실행되어도 실제로는 변수 runningTotal과 amount가 캡쳐되어 그 변수를 공유하기 때문에 누적된 결과를 가진다.
+plusedTen = plusTen() // 10
+plusedTen2 = plusTen() // 20
+// 다른 클로저이기 때문에 고유의 저장소에 runningTotal과 amount를 캡쳐해서 사용한다.
+let plusSeven = plusSeven()	// 7
+let plusSeven2 = plusSeven() // 14
 ```
 
 
 
+## Escaping Closure
 
+> 클로저가 함수의 인자로 전달되지만 함수 밖에서 실행되는 것을 Escape한다고 한다.
+>
+> 이러한 경우 매개변수의 타입 앞에 **@escaping**이라는 키워드를 명시한다.
+>
+> > 다음과 같은 경우 사용한다.
+>
+> > - 비동기로 실행되는 경우
+>
+> > - completionHandler로 사용되는 클로저의 경우
+
+- 일반적인 지역변수가 함수 밖에서 살아있는 것은 전역변수를 함수에 가져와서 값을 주는 것과 다름이 없지만, **클로저의 Escaping은 하나의 함수가 마무리된 상태에서만 다른 함수가 실행되도록 함수를 작성할 수 있다는 점에서 유리**하다.
+
+- 이를 활용해 함수 사이에 실행 순서를 정할 수 있다.
+
+  
+
+  
+
+  - @escaping 예제
+
+  ```Swift
+  var completionHandler: [() -> Void] = []
+  
+  func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) {
+    completionHandlers.append(completionHandler)
+  }
+  // 위 함수에서 인자로 전달된 completionHandler는 함수가 끝나고 나중에 처리된다.
+  // 만약 함수가 끝나고 실행되는 클로저에 @escaping키워드를 붙이지 않으면 컴파일 시 오류가 발생한다.
+  
+  // @escaping을 사용하는 클로저에서는 self를 명시적으로 언급해야 한다.
+  func someFunctionWithNoneescapingClosure(closure: () -> Void) {
+    closure()	// 함수 안에서 끝나는 클로저
+  }
+  
+  class SomeClass {
+    var x = 10
+    func doSomething() {
+      someFunctionWithEscapingClosure { self.x = 100 } // 명시적으로 self를 적어줘야 한다.
+      someFunctionWithNoneescapingClosure { x = 200 } 
+    }
+  }
+  
+  let instance = SomeClass()
+  instance.doSomething()
+  print(instance.x) // 200
+  
+  completionHandlers.first?()
+  print(instance.x)	// 100
+  ```
+
+  
 
