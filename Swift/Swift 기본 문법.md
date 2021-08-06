@@ -1,6 +1,6 @@
 TODO - 문법의 기본적인 것들을 정리하며 복습하는 시간을 가짐
 
-----
+---- 
 
 #### Swift의 메모리
 Struct 타입은 value, Class 타입은 Reference.
@@ -9,7 +9,7 @@ Reference는 Stack에 주소를 저장하고 값을 Heap에 저장함
 고로, 변수에 대입하면 Stack의 주소값이 대입되어 
 같은 Heap을 가리키게 됨
 
-----
+---- 
 
 ### 데이터 타입 고급
 
@@ -48,11 +48,11 @@ let month: Int = 7		// 물론 기존 Int도 사용 가능
 let percentage: MyDouble = 99.9		// Int 외의 다른 자료형도 모두 별칭 사용 가능
 ```
 
-----
+---- 
 
 ### 4.3 튜플
 
-> "튜플은 타입의 이름이 따로 지정되어 있지 않은 '지정된 데이터의 묶음'이다."	
+> "튜플은 타@입의 이름이 따로 지정되어 있지 않은 '지정된 데이터의 묶음'이다."	
 
 ```swift
 // String, Int, Double 타입을 갖는 튜플
@@ -100,7 +100,7 @@ let eric: PersonTuple = ("Eric", 120, 182)
 print("이름: \(yang.name), 나이: \(yang.age), 신장: \(yang.height)")
 ```
 
-----
+---- 
 
 # 컬렉션형
 
@@ -162,7 +162,7 @@ print(names[1 ... 3]) // ["jenny", "yang", "jihee"]
 
   
 
-----
+---- 
 
 ## 메모리를 참조하는 방법(strong, weak, unowned)
 
@@ -186,7 +186,7 @@ print(names[1 ... 3]) // ["jenny", "yang", "jihee"]
 > - 자신이 참조하는 인스턴스의 retain count를 증가시키지 않는다. release도 발생하지 않음
 > - 자신이 참조는 하지만 weak 메모리를 해제시킬 수 있는 권한은 다른 클래스에 있다.
 > - 메모리가 해제될 경우 자동으로 reference가 _nil로 초기화된다._
-> - ###### weak 속성을 사용하는 객체는 항상 Optional타입이어야 한다.
+> ###### - weak 속성을 사용하는 객체는 항상 Optional타입이어야 한다.
 > ```swift
 > weak var test = Test()	// 객체가 생성되지만 weak이기 때문에 바로 객체가 해제되어 nil이 됨
 > ```
@@ -209,11 +209,11 @@ print(names[1 ... 3]) // ["jenny", "yang", "jihee"]
 - strong : reference count를 증가시켜 ARC로 인한 메모리 해제를 피하고, 객체를 안전하게 사용하고자 할 때 쓰인다. 
 - weak : 대표적으로 retain cycle에 의해 메모리가 누수되는 문제를 막기 위해 사용한다. delegate 패턴이 있다.
 - unowned : 객체의 라이프사이클이 명확하고 개발자에 의한 제어 가능이 명확한 경우, weak Optional 타입 대신 사용하여 보다 간결한 코딩이 가능하다.                                               
-----
+---- 
 # Closure
 
 > **클로저란 ?**
->
+> 
 > - 사용자의 **코드 안에서 전달되어 사용할 수 있는 로직을 가진** '중괄호'로 구분된 코드의 블럭이며, **일급 객체의 역할**을 할 수 있다.
 > - **일급 객체는 전달 인자로 보낼 수 있고, 변수/상수 등으로 저장하거나 전달할 수 있으며, 함수의 반환 값이 될 수도 있다.**
 > - **참조 타입**이다.
@@ -247,7 +247,7 @@ let reverseNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
 ### 1. 타입 생략
 
 > 클로저는 다양한 형태로의 축약이 가능하다
->
+> 
 > - 코드의 모호성을 피하기 위해 타입을 명시하는 것이 좋을 때도 있다.
 
 ```Swift
@@ -265,7 +265,7 @@ let reverseNames = names.sorted(by : { s1, s2 in s1 > s2 })
 ### 3. 파라미터명 생략
 
 > 파라미터 명을 축약해서 사용할 수 있다
->
+> 
 > - 인자의 표기는 $0부터 순서대로
 
 ```Swift
@@ -303,7 +303,7 @@ let reversedNames = names.sorted { (s1: String, s2: String) -> Bool in
 ## Closure Capture
 
 > 클로저는 특정 문맥의 상수나 변수의 값을 캡쳐할 수 있다.
->
+> 
 > 즉, 원본 값이 사라져도 클로저의 Body 안에서 그 값을 활용할 수 있다.
 
 ```swift
@@ -332,54 +332,156 @@ let plusSeven2 = plusSeven() // 14
 ## Escaping Closure
 
 > 클로저가 함수의 인자로 전달되지만 함수 밖에서 실행되는 것을 Escape한다고 한다.
->
+> 
 > 이러한 경우 매개변수의 타입 앞에 **@escaping**이라는 키워드를 명시한다.
->
+> 
 > > 다음과 같은 경우 사용한다.
->
+> 
 > > - 비동기로 실행되는 경우
->
+> 
 > > - completionHandler로 사용되는 클로저의 경우
 
 - 일반적인 지역변수가 함수 밖에서 살아있는 것은 전역변수를 함수에 가져와서 값을 주는 것과 다름이 없지만, **클로저의 Escaping은 하나의 함수가 마무리된 상태에서만 다른 함수가 실행되도록 함수를 작성할 수 있다는 점에서 유리**하다.
 
 - 이를 활용해 함수 사이에 실행 순서를 정할 수 있다.
 
-  
+	  
 
-  
+	  
 
   - @escaping 예제
 
-  ```Swift
-  var completionHandler: [() -> Void] = []
+```Swift
+var completionHandler: [() -> Void] = []
   
-  func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) {
-    completionHandlers.append(completionHandler)
+func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) {
+  completionHandlers.append(completionHandler)
+}
+// 위 함수에서 인자로 전달된 completionHandler는 함수가 끝나고 나중에 처리된다.
+// 만약 함수가 끝나고 실행되는 클로저에 @escaping키워드를 붙이지 않으면 컴파일 시 오류가 발생한다.
+  
+// @escaping을 사용하는 클로저에서는 self를 명시적으로 언급해야 한다.
+func someFunctionWithNoneescapingClosure(closure: () -> Void) {
+  closure()	// 함수 안에서 끝나는 클로저
+}
+  
+class SomeClass {
+  var x = 10
+  func doSomething() {
+    someFunctionWithEscapingClosure { self.x = 100 } // 명시적으로 self를 적어줘야 한다.
+    someFunctionWithNoneescapingClosure { x = 200 } 
   }
-  // 위 함수에서 인자로 전달된 completionHandler는 함수가 끝나고 나중에 처리된다.
-  // 만약 함수가 끝나고 실행되는 클로저에 @escaping키워드를 붙이지 않으면 컴파일 시 오류가 발생한다.
+}
   
-  // @escaping을 사용하는 클로저에서는 self를 명시적으로 언급해야 한다.
-  func someFunctionWithNoneescapingClosure(closure: () -> Void) {
-    closure()	// 함수 안에서 끝나는 클로저
-  }
+let instance = SomeClass()
+instance.doSomething()
+print(instance.x) // 200
   
-  class SomeClass {
-    var x = 10
-    func doSomething() {
-      someFunctionWithEscapingClosure { self.x = 100 } // 명시적으로 self를 적어줘야 한다.
-      someFunctionWithNoneescapingClosure { x = 200 } 
-    }
-  }
-  
-  let instance = SomeClass()
-  instance.doSomething()
-  print(instance.x) // 200
-  
-  completionHandlers.first?()
-  print(instance.x)	// 100
-  ```
+completionHandlers.first?()
+print(instance.x)	// 100
+```
 
   
+
+## AutoClosure
+
+> 자동 클로저는 인자 값이 없으며, 특정 표현을 감싸서 다른 함수에 전달인자로 사용할 수 있는 클로저이다.
+> 
+> - 자동 클로저는 클로저를 실행하기 전까지 실행되지 않는다.
+> - 즉, 실제 계산이 필요할 때 호출되기 때문에 계산이 복잡한 연산을 하는데 유용하다.
+
+```Swift
+var cunstomersInline = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
+print(customerInline.count) // 5
+
+let customerProvider = { customersInline.remove(at: 0) } // count가 줄어들지 않는다.
+print(customersInline.count) // 5
+
+// customerProvider가 실행되었을 때 동작한다.
+print("Now serving \(customerProvider())!") // "Now serving Chris!"
+print(customersInline.count) // 4
+```
+
+
+
+- 자동 클로저를 함수의 인자 값으로 넣는 예제
+
+```Swift
+func serve(customer customerProvider: () -> String) {
+  print("Now serving \(customerProvider())!")
+}
+  
+// Serve함수는 인자로 () -> String을 가진다.
+// 이 함수에 클로저를 명시적으로 직접 넣을 수 있다.
+serve(customer: { customerInline.remove(at: 0) } ) // "Now serving Alex!"
+```
+
+  
+
+- @autoclosure 키워드를 붙임으로써 인자 값은 자동으로 클로저로 변환된다. (중괄호 생략 가능)
+- 자동 클로저는 명시가 분명한 경우에만 사용하자.
+
+
+
+- @autoclosure + @escaping
+
+```Swift
+var customersInline = ["Barry", "Daniella"]
+var customerProviders: [() -> String] = []
+  
+ // 클로저를 인자로 받아 해당 클로저를 customerProviders 배열에 추가하는 함수 선언
+func collectCustomerProviders(_ customerProvider: @autoclosure @escaping () -> String) {
+  customerProviders.append(customerProvider)
+}
+  
+collectCustomerProviders(customersInline.remove(at: 0)) // 클로저를 customerProviders 배열에 추가
+collectCustomerProviders(customersInline.remove(at: 0))
+  
+print("Collected \(customerProviders.count) closures.")	// 2개의 클로저가 추가됨
+  
+for customerProvider in customerProviders {
+  print("Now serving \(customerProvider())!") // 클로저를 실행하면 배열의 0번째 원소를 제거하며 그 값을 출력
+}
+// "Now serving Barry!"
+// "Now serving Daniella!"
+```
+
+  
+
+---- 
+
+## Subscript
+
+> - 컬렉션, 리스트, 시퀀스 등 집합의 특정 Member Elements에 간단히 접근할 수 있다.
+> - 추가적인 메소드 없이 특정 값을 할당하거나 가져올 수 있따.
+> - Ex.) Array[index]로 배열의 항목과 Dictionary[key]로 딕셔너리 항목에 접근하는 것
+
+
+
+### 기본 형태
+
+- 메소드와 연산 프로퍼티의 선언과 비슷하다.
+- 하지만, 서브스크립트는 read-write와 read only만 가능하다.
+- set에 대한 인자 값을 따로 지정하지 않으면 기본값으로 newValue가 지정된다.
+
+```Swift
+subscript(index: Int) -> Int {
+	get {
+    // 반환 값
+ 	}
+	set(newValue) {
+    // Set 액션
+	}
+}
+```
+
+
+- Read-Only로 선언하고 싶다면 아래와 같이 키워드를 따로 지정하지 않으면 get으로 동작한다.
+
+```Swift
+subscript(index: Int) -> Int {
+  // return Get
+}
+```
+
 
