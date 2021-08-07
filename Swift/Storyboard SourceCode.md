@@ -7,4 +7,12 @@ SceneDelegate.swift
 ##### ViewController.swift
 > “도구 모음, 탐색 모음 및 응용프로그램 보기에 대한 보기 관리 기능을 제공합니다. 또한 UIViewController 클래스는 장치 방향이 변경될 때 모달 보기 및 회전 보기를 지원합니다.”
 
-##### Main.storyboard
+#### Main.storyboard
+
+### Passing Data - 데이터를 넘겨주는 방법 6가지
+> 1. Instance Property
+> 2. Segueway
+> 3. Instance
+> 4. Delegate
+> 5. Closure
+> 6. Notification
