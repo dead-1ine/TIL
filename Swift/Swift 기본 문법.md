@@ -1,6 +1,6 @@
 TODO - 문법의 기본적인 것들을 정리하며 복습하는 시간을 가짐
 
----- 
+----
 
 #### Swift의 메모리
 Struct 타입은 value, Class 타입은 Reference.
@@ -9,7 +9,7 @@ Reference는 Stack에 주소를 저장하고 값을 Heap에 저장함
 고로, 변수에 대입하면 Stack의 주소값이 대입되어 
 같은 Heap을 가리키게 됨
 
----- 
+----
 
 ### 데이터 타입 고급
 
@@ -48,7 +48,7 @@ let month: Int = 7		// 물론 기존 Int도 사용 가능
 let percentage: MyDouble = 99.9		// Int 외의 다른 자료형도 모두 별칭 사용 가능
 ```
 
----- 
+----
 
 ### 4.3 튜플
 
@@ -100,7 +100,7 @@ let eric: PersonTuple = ("Eric", 120, 182)
 print("이름: \(yang.name), 나이: \(yang.age), 신장: \(yang.height)")
 ```
 
----- 
+----
 
 # 컬렉션형
 
@@ -162,7 +162,7 @@ print(names[1 ... 3]) // ["jenny", "yang", "jihee"]
 
   
 
----- 
+----
 
 ## 메모리를 참조하는 방법(strong, weak, unowned)
 
@@ -209,7 +209,7 @@ print(names[1 ... 3]) // ["jenny", "yang", "jihee"]
 - strong : reference count를 증가시켜 ARC로 인한 메모리 해제를 피하고, 객체를 안전하게 사용하고자 할 때 쓰인다. 
 - weak : 대표적으로 retain cycle에 의해 메모리가 누수되는 문제를 막기 위해 사용한다. delegate 패턴이 있다.
 - unowned : 객체의 라이프사이클이 명확하고 개발자에 의한 제어 가능이 명확한 경우, weak Optional 타입 대신 사용하여 보다 간결한 코딩이 가능하다.                                               
----- 
+----
 # Closure
 
 > **클로저란 ?**
@@ -448,7 +448,7 @@ for customerProvider in customerProviders {
 
   
 
----- 
+----
 
 ## Subscript
 
@@ -484,4 +484,19 @@ subscript(index: Int) -> Int {
 }
 ```
 
+- Read-Only 서브 스크립트 예시
+
+  ```Swift
+  struct TimesTable {
+    let multiplier: Int
+    subscript(index: Int) -> Int {
+      return multiplier * index
+    }
+  }
+  let threeTimesTable = TimesTable(multiplier: 3)
+  print("six times three is \(threeTimesTable[6])")
+  // "six times three is 18"
+  ```
+
+  
 
