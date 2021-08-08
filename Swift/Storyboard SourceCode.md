@@ -16,3 +16,17 @@ SceneDelegate.swift
 > 4. Delegate
 > 5. Closure
 > 6. Notification
+
+
+### DispatchQueue
+- Async
+- Sync
+- Qos : 우선순위
+- DispatchGroup
+- main의 sync 에러에 대한 내용
+---- 
+# 차후에 정리해야 할 목록
+> - @objc
+> - 각각의 변수, 함수 등에 적용하여 Objective-c의 접근을 가능하게 해줌
+> - @objcMembers
+> - Class에 적용되며, Class 내의 함수, 변수 등 Objective-C에서 접근할 수 있게 함
