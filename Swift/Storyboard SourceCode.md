@@ -127,7 +127,7 @@
 >
 > 5. Closure
 >
-> 6. \Notification
+> 6. Notification
 
 
 ### DispatchQueue
