@@ -53,8 +53,8 @@
 >
 > - FastAPI 임포트
 > - app 인스턴스 생성
-> - `app.get("/")`: 경로 동작 데코레이터 작성
-> - `def root():` : 경로 동작 함수 작성
+> - `app.get("/")`: path operation decorator 작성
+> - `def root():` : path operation function 작성
 > - `uvicorn main:app --reload` : 개발 서버 실행
 
 - main.py 파일 만들기
@@ -92,6 +92,138 @@ def read_item(item_id: int, q: Optional[str] = None):
 - 대안 API 문서 확인하기 : http://localhost:8000/redoc
 
 
+
+### 경로 매개변수
+
+---
+
+- 파이썬과 동일한 문법으로 "매개변수" 또는 "변수"를 경로에 선언할 수 있다.
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/items/{item_id}")
+async def read_item(item_id):
+  return {"item_id" : item_id}
+```
+
+- 경로 매개변수 item_id의 값은 함수의 item_id 인자로 전달된다.
+
+  이 예제를 실행하고 http://localhost:8000/items/foo로 이동하면 다음 응답을 볼 수 있다.
+
+  `{"item_id" : "foo"}`
+
+
+
+### 타입이 있는 매개변수
+
+---
+
+- 파이썬 기본 문법과 동일하게 경로 매개변수의 타입을 선언할 수 있다.
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/items/{item_id}")
+async def read_item(item_id: int):
+  return {"item_id" : item_id}
+```
+
+- 이 예제를 실행하고 http://localhost:8000/items/3로 이동하면 다음 응답을 볼 수 있다.
+
+  `{"item_id" : 3}` - 선언된 타입으로 자동 파싱됨
+
+- 만약 int형으로 파싱될 수 없다면 다음 에러가 나옴
+
+- 오류는 검증을 통과하지 못한 지점까지 정확하게 명시함
+
+```json
+{
+  "detail" : [
+    {
+      "loc" : [
+        "path",
+        "item_id"
+      ],
+      "msg" : "value is not a valid interger",
+      "type" : "type_error.integer"
+    }
+  ]
+}
+```
+
+### Pydantic
+
+---
+
+- 모든 데이터 검증은 Pydantic에 의해 내부적으로 수행되므로 이로 인한 모든 이점을 얻을 수 있다.
+- `str, float, bool`과 다른 복잡한 데이터 타입 선언을 할 수 있다.
+
+
+
+### 순서 문제
+
+---
+
+- 경로 동작을 만들 때 고정 경로를 갖고 있는 상황을 만날 수 있다.
+- 경로 동작은 순차적으로 평가되기 때문에 `/users/me`를 사용한다면 `/users/{user_id}`보다 먼저 선언해야 한다.
+  그렇지 않으면 `/users/{user_id}`는 매개변수 `user_id`의 값을 `"me"`라고 생각하여 실행된다.
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/users/me/")
+async def read_user_me():
+  return {"user_id"}
+
+@app.get("/users/{user_id}")
+async def read_user(user_id: str):
+  return {"user_id" : user_id}
+```
+
+
+
+### 사전 정의 값
+
+---
+
+> 만약 경로 매개변수를 받는 경로 동작이 있지만, 유효하고 미리 정의할 수 있는 경로 매개변수 값을 원한다면 파이썬의 Enum을 사용할 수 있다.
+
+- Enum 클래스 생성
+
+  - Enum을 임포트하고 str과 Enum을 상속하는 서브 클래스를 만듦
+  - str을 상속함으로써 API문서는 값이 String 형이어야 하는 것을 알게되고 제대로 렌더링할 수 있게 됨
+  - 고정값으로 사용할 수 있는 유효한 클래스 속성을 만듦
+
+  ```python
+  from enum import Enum
+  from fastapi import FastAPI
+  
+  class ModelName(str, Enum):
+    alexnet = "alexnet"
+    resnet = "resnet"
+    lenet = "lenet"
+    
+  app = FastAPI()
+  
+  @app.get("/models{model_name}")
+  async def get_model(model_name: ModelName):
+    if model_name == ModelName.alexnet:
+      return {"model_name": model_name, "message": "Deep Learning FTW!"}
+    
+    if model_name.value == "lenet":
+      return {"model_name": model_name, "LeCNN all the images"}
+    
+    return {"model_name": model_name, "message": "Have some residuals"}
+  ```
+
+  
 
 ### 예제 2
 
