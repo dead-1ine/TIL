@@ -223,7 +223,39 @@ async def read_user(user_id: str):
     return {"model_name": model_name, "message": "Have some residuals"}
   ```
 
+
+
+
+### 경로 매개변수 선언
+
+---
+
+- 생성한 열거형 클래스를 사용하는 타입 어노테이션으로 경로 매개변수를 만든다.
+
+```python
+from enum import Enum
+from fastapi import FastAPI
+
+class ModelName(str, Enum):
+  alextnet = "alexnet"
+  resnet = "resnet"
+  lenet = "lenet"
   
+app = FastAPI()
+
+@app.get("/models/{model_name}")
+async def get_model(model_name: ModelName):
+  if model_name == ModelName.alexnet:
+    return {"model_name": model_name, "message": "Depp Learning FTW!"}
+  
+  if model_name.value == "lenet":
+    return {"model_name": model_name, "message": "LeCNN all the images"}
+  
+  return {"model_name": model_name, "message": "Have someresiduals"}
+```
+
+- Swagger 확인 - 경로 매개변수에 사용할 수 있는 값이 선택되게 미리 정의되어 문서에 표시됨
+-   
 
 ### 예제 2
 
