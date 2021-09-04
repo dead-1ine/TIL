@@ -245,17 +245,52 @@ app = FastAPI()
 
 @app.get("/models/{model_name}")
 async def get_model(model_name: ModelName):
+  # enum 비교하기
   if model_name == ModelName.alexnet:
     return {"model_name": model_name, "message": "Depp Learning FTW!"}
-  
+  # enum 값 가져오기
   if model_name.value == "lenet":
     return {"model_name": model_name, "message": "LeCNN all the images"}
-  
+  # JSON 형식으로 return
   return {"model_name": model_name, "message": "Have someresiduals"}
 ```
 
 - Swagger 확인 - 경로 매개변수에 사용할 수 있는 값이 선택되게 미리 정의되어 문서에 표시됨
--   
+
+
+
+### OpenAPI 지원
+
+---
+
+- 테스트와 정의가 어려워지는 OpenAPI는 경로를 포함하는 경로 매개변수를 내부에 선언하는 방법을 지원하지 않는다.
+- 하지만, Stralette의 내부 도구 중 하나를 사용하여 FastAPI에서 사용 가능하다.
+
+
+
+### 경로 변환기
+
+---
+
+- Starlett에서 옵션을 사용하면 다음과 같은 URL을 사용하여 path를 포함하는 경로 매개변수를 선언할 수 있다.
+
+  `/files/{file_path:path}` : 이러한 매개변수의 이름은 file_path이고, 마지막 부분 `:path`는 매개변수가 경로와 일치해야함을 알려준다.
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/files/{file_path:path}")
+async def read_file(file_path: str):
+  return {"file_path": file_path}
+```
+
+- 매개변수 : `/home/johndoe/myfile.txt` -> 이 경우 URL : `files//home/johndoe/myfile.txt`이고, files와 home 사이에 이중 슬래시 (//)가 생긴다.
+
+
+
+
 
 ### 예제 2
 
