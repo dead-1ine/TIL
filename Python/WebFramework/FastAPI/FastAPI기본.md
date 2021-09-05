@@ -12,25 +12,16 @@
   - 쉬움: 쉽게 사용하고 배우도록 설계. 적은 문서 읽기 시간.
   - 짧음: 코드 중복 최소화. 각 매개변수 선언의 여러 기능. 적은 버그.
   - 표준 기반: API에 대한 개방형 표준 기반
+  
+  
 
 ### FastAPI의 기본 서비스
 
 ---
 
 - Swagger : http://localhost:8000/docs
-
 - ReDoc : http://localhost:8000/re
-
 - http://localhost:8000/openapi.json
-
-
-
-### 설치
-
----
-
-`pip install fastapi`
-`pip install uvicorn[standard]`
 
 
 
@@ -290,7 +281,27 @@ async def read_file(file_path: str):
 
 
 
+### 쿼리 매개변수
 
+---
+
+- 경로 매개변수의 일부가 아닌 다른 함수 매개변수를 선언할 때, "쿼리" 매개변수로 자동 해석한다.
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+fake_items_db = [{"item_name": "Foo"}, {"item_name": "Bar"}, {"item_name": "Baz"}]
+
+@app.get("/items/")
+async def read_item(skip: int = 0, limit: int = 10):
+  return fake_items_db[skip : skip + limit]
+```
+
+- 쿼리는 URL의 `?` 후에 나오고 `&`로 구분되는 키-값 쌍의 집합이다.
+- `http://localhost:8000/items/?skip=0&limit=10`
+- URL의 일부이기 때문에 자동으로 값은 문자열 취급이 된다. 하지만 파이썬 타입과 함께 선언 시, 해당 타입으로 변환되고 이를 검증한다.
+- 만약 `http://localhost/items/`로 이동한 경우 -> 기본값으로 지정한 값인 `skip=0, limit=10`이 된다.
 
 ### 예제 2
 
