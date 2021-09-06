@@ -303,7 +303,128 @@ async def read_item(skip: int = 0, limit: int = 10):
 - URL의 일부이기 때문에 자동으로 값은 문자열 취급이 된다. 하지만 파이썬 타입과 함께 선언 시, 해당 타입으로 변환되고 이를 검증한다.
 - 만약 `http://localhost/items/`로 이동한 경우 -> 기본값으로 지정한 값인 `skip=0, limit=10`이 된다.
 
-### 예제 2
+
+
+### 선택적 매개변수 - Optional[str] = None
+
+---
+
+- 쿼리 매개변수와 같은 방법으로 기본값을 None으로 설정하여 선택적 매개변수를 선언할 수 있다.
+
+```python
+from typing import Optional 
+from fastapi import FastAPI
+
+app = FastAPI()
+
+# 이 경우 함수 매개변수 q는 선택적이며, 기본값은 None이 된다.
+@app.get("/items/{item_id}")
+async def read_item(item_id: str, q: Optional[str] = None):
+  if q:
+    return {"item_id": item_id, "q": q}
+  return {"item_id": item_id}
+```
+
+- FastAPI는 q가 None이므로 선택적이라는 것을 인지한다.
+
+
+
+### 쿼리 매개변수 형변환
+
+---
+
+- `bool`형으로 선언할 수 있고, 아래처럼 변환이 가능하다.
+
+```python
+from typing import Optional
+from fastapi import FastAPI
+app = FastAPI()
+
+@app.get("/items/{item_id}")
+async def read_item(item_id: str, q: Optional[str] = None, short: bool = False):
+  item = {"item_id": item_id}
+  if q:
+    item.update({"q": q})
+  if not short:
+    item.update(
+      {"description": "This is an amazing item that has a long description"}
+    )
+  return item
+
+# short의 값 중 참에 해당하는 것들 (1, True, true, on, yes)
+```
+
+
+
+### 여러 경로/쿼리 매개변수
+
+---
+
+- 여러 경로 매개변수와 쿼리 매겨변수를 동시에 선언할 수 있다.
+- 특정 순서로 선언할 필요가 없으며, 매개변수들은 이름으로 감지된다.
+
+```python
+from typing import Optional
+from fastapi import FastAPI
+app = FastAPI()
+
+# !
+@app.get("/users/{user_id}/items/{item_id}")
+async def read_user_item(
+	user_id: int, item_id: str, q: Optional[str] = None, short: bool = False
+):
+  item = {"item_id": item_id, "owner_id": user_id}
+  if q:
+    item.update({"q": q})
+  if not short:
+    item.update(
+    	{"description": "This is an amazing itme that has a long description"}
+     )
+  return item
+```
+
+
+
+### 필수 쿼리 매개변수
+
+---
+
+- 매개변수를 필수적(Required)하게 만들기
+
+```python
+from fastapi import FastAPI
+app = FastAPI()
+
+@app.get("/items/{item_id}")
+async def read_user_item(item_id: str, needy: str):
+  item = {"item_id": item_id, "needy": needy}
+  return item
+```
+
+만약 필수 매개변수인 `needy`를 넣지 않으면 다음과 같은 오류가 발생
+`"msg": "field required", "type": "value_error.missing"`
+
+
+
+### 매개변수 종합
+
+```python
+from typing import Optional
+from fastapi import FastAPI
+app = FastAPI()
+
+@app.get("/items/{item_id}")
+async def read_user_item(
+	item_id: str, needy: str, skip: int = 0, limit: Optional[int] = None):
+  item = {"item_id": item_id, "needy": needy, "skip": skip, "limit": limit}
+  return item
+```
+
+- `needy`, 필수적인 `str`
+- `skip`, 기본값이 0인 `int`
+- `limit`, 선택적인 `int`
+
+
 
 ---
 
