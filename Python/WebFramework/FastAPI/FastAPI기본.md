@@ -12,7 +12,7 @@
   - 쉬움: 쉽게 사용하고 배우도록 설계. 적은 문서 읽기 시간.
   - 짧음: 코드 중복 최소화. 각 매개변수 선언의 여러 기능. 적은 버그.
   - 표준 기반: API에 대한 개방형 표준 기반
-  
+
   
 
 ### FastAPI의 기본 서비스
@@ -425,6 +425,132 @@ async def read_user_item(
 - `limit`, 선택적인 `int`
 
 
+
+### Pydantic's BaseModel
+
+---
+
+```python
+from typing import Optional
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+# 속성 중 타입이 Optional로 지정되어 있으면 선택적이다.
+class Item(BaseModel):
+  name: str
+  description: Optional[str] = None
+  price: float
+  tax: Optional[float] = None
+    
+app = FastAPI()
+
+# 선언한 class를 사용하여 파라미터 정의하기
+@app.post("/items")
+async def create_item(item: Item):
+  return item
+```
+
+
+
+### Use the model
+
+---
+
+-   함수 내에서 선언한 모델의 모든 속성에 접근할 수 있다.
+
+```python
+from typing import Optional
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+class Item(BaseModel):
+  name: str
+  description: Optional[str] = None
+  price: float
+ 	tax: Optional[float] = None
+    
+app = FastAPI()
+
+@app.post("/items/")
+async def create_item(item: Item):
+  item_dict = item.dict()
+  if item.tax:
+    price_with_tax = item.price + item.tax
+    item_dict.update({"price_with tax": price_with_tax})
+  return item_dict
+```
+
+
+
+### RequestBody + Path Parameter
+
+---
+
+-   경로 파라미터와 requestbody를 같이 선언할 수 있다.
+-   **kwargs : keyword argument - 키워드를 제공함
+
+```python
+from typing import Optional
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+class Item(BaseModel):
+  name: str
+  descpription: Optional[str] = None
+  price: float
+  tax: Optional[float] = None
+    
+app = FastAPI()
+
+@app.put("/items/{item_id}")
+async def create_item(item_id: int, item: Item):
+  # 딕셔너리의 형태로 item.dict를 전달한다.
+  return {"item_id": item_id, **item.dict()}
+```
+
+
+
+### Request body + path + query parameters
+
+---
+
+-   You can also declare body, path and query parameters, all at the same time.
+-   FastAPI will recognize each of them and take the data from the correct place.
+
+```python
+from typing import Optional
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+class Item(BaseModel):
+  name: str
+  description: Optional[str] = None
+  price: float
+  tax: Optional[float] = None
+    
+app = FastAPI()
+
+@app.put("/items/{item_id}")
+async def create_item(item_id: int, item: Item, q: Optional[str] = None):
+  result = {"item_id", **item.dict()}
+  if q:
+    result.update({"q": q})
+  return result
+```
+
+-   The function parameters will be recognized as follows:
+    -   If the parameters is also declared in the path, it will be used as a path parameter.
+    -   If the parameter is of a singular type(like `int, float, str, bool`) it will be interpreted as a query parameter.
+    -   If the parameter is declared to be of the type of a Pydantic model, it will be interpreted as a request body.
+
+-   Eng
+    1.   recognize : 알아보다
+    2.   singular : 단수형, 단수형의
+    3.   interpret: 해석하다.
+    4.   declare : 선언하다.
 
 ---
 
