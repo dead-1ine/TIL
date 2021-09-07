@@ -552,6 +552,25 @@ async def create_item(item_id: int, item: Item, q: Optional[str] = None):
     3.   interpret: 해석하다.
     4.   declare : 선언하다.
 
+
+
+### Query Parameters and String Validations
+
+---
+
+```python
+from typing import Optional 
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/items/")
+async def read_items(q: Optional[str] = None):
+  results = {"items": [{"item_id"}]}
+```
+
+
+
 ---
 
 - PUT 요청 만들기
