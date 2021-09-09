@@ -36,6 +36,14 @@
 
 
 
+### FastAPI 서버 구동
+
+---
+
+-   서버 reload : `uvicorn main:app --reload`
+-   Swagger에서 "Try it out"을 활용해 매개변수를 전달하고 직접 API와 상호작용할 수 있음
+-   그 후 "Execute"를 통해, 사용자 인터페이스는 API와 통신하고 매개변수를 전달하여 그 결과를 화면에 표시함
+
 ### 예제 1
 
 ---
@@ -566,7 +574,7 @@ app = FastAPI()
 
 @app.get("/items/")
 async def read_items(q: Optional[str] = None):
-  results = {"items": [{"item_id"}]}
+  results = {"items": [{"item_id"}]}z
 ```
 
 
@@ -587,12 +595,8 @@ class Item(BaseModel):
   name: str
   price: float
   is_offer: Optional[bool] = None
-    
+
 @app.put("/items/{item_id}")    
 def update_item(item_id: int, item: Item):
   return {"item_name": item.name, "item_id": item_id}
 ```
-
-- 서버 reload : `uvicorn main:app --reload`
-- Swagger에서 "Try it out"을 활용해 매개변수를 전달하고 직접 API와 상호작용할 수 있음
-- 그 후 "Execute"를 통해, 사용자 인터페이스는 API와 통신하고 매개변수를 전달하여 그 결과를 화면에 표시함
