@@ -4,5 +4,7 @@
 
 TODO: 1. Python 문법
       2. FastAPI
-      3. BRANDI's all things
+      3. Docker
+      4. SSM
+      5. Pymongo
 
