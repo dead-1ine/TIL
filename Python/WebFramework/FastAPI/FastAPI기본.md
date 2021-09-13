@@ -554,6 +554,8 @@ async def create_item(item_id: int, item: Item, q: Optional[str] = None):
     -   If the parameter is of a singular type(like `int, float, str, bool`) it will be interpreted as a query parameter.
     -   If the parameter is declared to be of the type of a Pydantic model, it will be interpreted as a request body.
 
+    
+    
 -   Eng
     1.   recognize : 알아보다
     2.   singular : 단수형, 단수형의
