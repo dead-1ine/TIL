@@ -35,19 +35,30 @@
 ![스크린샷 2021-09-15 오전 9.18.05](/Users/yang-wonseog/Library/Application Support/typora-user-images/스크린샷 2021-09-15 오전 9.18.05.png)
 
 1.   **Data Store** : S3, RDS, Redshift, Kinesis, Apache Kafka 등의 데이터 저장 서비스나 데이터 스트림 서비스이다.
-
 2.   **Classifier** : 데이터의 스키마를 결정하고 일반적인 파일들의 분류자를 제공한다.
-
 3.   **Crawler** : Classifier의 우선 순위 지정 목록을 통해 데이터의 스키마를 결정한 다음, 메타 데이터 테이블을 생성한다.
-
 4.   **Data Catalog** : 테이블 정의, 작업 정의 및 기타 관리 정보를 포함한다.
-
 5.   **Job** : ETL 작업을 수행하는 데 필요한 변환 스크립트, 데이터 원본 및 데이터 대상으로 구성된 비즈니스 로직이다.
-
 6.   **Connection** : AWS의 다른 데이터 저장 서비스나 사용자의 VPC환경 내부에 있는 데이터베이스에서 데이터 추출을 위한 장치이다.
-
 7.   **Script** : Apache Spark에서 사용하는 PySpark, Scala 등으로 짜여진 ETL 작업 스크립트이다.
-
 8.   **Schedule or Event** : Job이 실행되는 주기를 설정하거나, 혹은 특정 이벤트로 인한 트리거로 실행할 수 있다.
 
-     
+
+
+### Glue Studio
+
+---
+
+-   AWS Glue의 GUI로, ETL이 필요한 개발자들이 Glue에서 ETL 작업을 손쉽게 작성하여 실행 및 모니터링이 가능하다.
+-   코드를 작성하지 않고 AWS Glue의 서버리스 Apache Spark 기반 ETL 플랫폼에서 빅데이터를 처리할 수 있다.
+
+![스크린샷 2021-09-15 오전 10.04.24](/Users/yang-wonseog/Library/Application Support/typora-user-images/스크린샷 2021-09-15 오전 10.04.24.png)
+
+-   Glue Studio를 통해 여러 데이터 소스에서 카탈로그로 메타데이터만 가져오고, ETL 작업 후 데이터를 저장하거나 엔드포인트를 생성하여 Sagemaker, EMR, QuickSight 등의 서비스로 연결할 수 있다.
+
+![스크린샷 2021-09-15 오전 10.06.44](/Users/yang-wonseog/Library/Application Support/typora-user-images/스크린샷 2021-09-15 오전 10.06.44.png)
+
+
+
+[출처 : https://aws.amazon.com/ko/glue]
+
