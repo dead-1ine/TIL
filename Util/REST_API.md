@@ -102,8 +102,6 @@ fetch(url, options)
 
 ---
 
--   원격 API에서 관리하는 데이터의 수정과 삭제를 위해 PUT과 DELETE 방식의 HTTP 호출을 해야할 때가 있다.
-
 -   PUT방식은 method 옵션만 PUT으로 설정한다는 점을 빼놓고는 POST 방식과 매우 흡사하다.
 
     ```js
