@@ -79,9 +79,9 @@
 >      //MARK:- 1. 프로퍼티를 이용한 Data 전달
 >      @IBAction func first(_ sender: Any) {
 >        guard let vc = storyboard?.instantiateViewController(identifier: "secondViewController") as? SecondViewController else { return }
->        
+>          
 >        vc.text = self.propertyTextField.text ?? ""
->        
+>          
 >        // 이 프로퍼티에 접근해서 데이터를 저장했다고 그 자체로 저장되는 것이 아니라,
 >        // 정확한 데이터의 전달은 이후 push에서 발생함
 >        self.navigationController?.pushViewController(vc, animated: true)
@@ -93,10 +93,10 @@
 >      class SecondViewController: UIViewController {
 >        @IBOutlet weak var textLabel: UILabel!
 >        var text: String = ""
->        
+>          
 >        override func viewDidLoad() {
 >          super.viewDidLoad()
->          
+>            
 >          self.textLabel.text = text
 >        }
 >      }

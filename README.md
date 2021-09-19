@@ -7,7 +7,8 @@
 ---
 
 1.   Pymongo
-2.   Python
-3.   Flask
+2.   Pandas - 데이터 분석
+3.   Numpy
 4.   REST API
+5.   Python 심화 문법
 
