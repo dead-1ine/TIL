@@ -37,3 +37,5 @@ CORS(app, resources={r'*': {'origins': 'http://허용할 도메인 주소'}})
 CORS(app, resources={r'/_api/*': 'http://허용할 도메인 주소'})
 ```
 
+
+
