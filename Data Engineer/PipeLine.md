@@ -14,3 +14,4 @@
     -   Hadoop에서 진화된 버전
         -   차이점: Hadoop의 MapReduce는 작업물을 디스크인 hdfs에 저장하는 반면, Spark는 RDD라는 분산 메모리에 저장함
     -   다양한 언어 지원 - Java, Python을 통한 API 제공
+
