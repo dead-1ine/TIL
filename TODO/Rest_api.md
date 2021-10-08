@@ -38,3 +38,31 @@
 
      REST 서버는 다중 계층으로 구성될 수 있으며 보안, 로드 밸런싱, 암호화 계층을 추가해 구조를 유연하게 할 수 있다. 또한 Proxy, Gateway와 같은 네트워크 기반의 중간매체를 사용할 수 있다.
 
+
+
+### REST API 디자인 가이드
+
+---
+
+REST API 설계 시 가장 중요한 항목은 2가지로 요약할 수 있다.
+
+1.   URI는 정보의 자원을 표현해야 한다.
+2.   자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.
+
+
+
+-   URI는 정보의 자원을 표현해야 한다. (리소스명은 동사보다 명사를 사용할 것)
+
+    `GET /members/delete/1`
+
+    위와 같은 방식은 REST를 제대로 적용하지 않은 URI이다. URI는 자원을 표현하는데 중점을 두어야 한다. DELETE와 같은 행위에 대한 표현이 들어가서는 안된다.
+
+
+
+-   자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.
+
+    위의 잘못된 URI를 HTTP Method를 통해 수정해보면
+
+    `DELETE /members/1`
+    로 수정할 수 있다. 
+    회원정보를 가져올 때는 GET, 회원 추가 시와 같은 표현을 할 때는 POST Method를 사용한다.
