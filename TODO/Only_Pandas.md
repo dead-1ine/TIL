@@ -31,3 +31,24 @@
 
      
 
+### 기타
+
+---
+
+1.   엑셀 파일 만들기/저장하기
+
+     ```python
+     import openpyxl
+     
+     wb = openpyxl.Workbook()
+     
+     wb.save('test.xlsx')
+     
+     sheet = wb.active
+     
+     sheet['Ai'] = 'hello world!'
+     
+     wb.save('test.xlsx')
+     ```
+
+     
