@@ -4,6 +4,6 @@
 
 ### TODO
 ---
-1.   Pandas - 데이터 분석
-2.   Python Test Framework
-3.   FastAPI
+1.   Mastering Pandas
+2.   Python Grammer
+3.   Work Hard !
