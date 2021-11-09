@@ -5,5 +5,4 @@
 ### TODO
 ---
 1.   Mastering Pandas
-2.   Python Grammer
-3.   Work Hard !
+2.   Docker, Kubernetes
