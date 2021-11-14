@@ -1,5 +1,3 @@
-object LearnScala {
-    def main(args: Array[String]): Unit = {
-        println("Hello, World!")
-    }
+object Hello extends App {
+    println("Hello, world")
 }

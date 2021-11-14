@@ -1,6 +1,7 @@
-object LearnScala {
-    def main(args: Array[String]): Unit = {
-        println(1 + 2)
-        println( (1).+(2) )
-    }
-}
+var x = 1   // immutable
+var y = 0   // mutable
+
+// Decalring variable types
+val x = 1
+val s = "a string"
+val p = new Person("Regina")
