@@ -390,3 +390,4 @@ Error downloading com.lihaoyi:ammonite-repl-api_2.13.7:2.3.8-124-2da846d2
 [0m2021.11.17 20:08:06 WARN  no build target for: /Users/dead_line/Library/Mobile Documents/com~apple~CloudDocs/Git/TIL/Scala/variable.sc[0m
 11월 17, 2021 8:12:36 오후 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 정보: Unsupported notification method: $/setTrace
+[0m2021.11.19 23:25:30 INFO  shutting down Metals[0m
