@@ -16,8 +16,6 @@ parent_function() # Call Parent Func
 
 
 
-
-
 ### Why use nested function?
 
 ---
@@ -60,5 +58,11 @@ parent_function() # Call Parent Func
      >   calculate_power_of_seven(3) # 7의 3승 => 343
      >   ```
 
-     
+# Closure Function
+
+---
+
+>   함수와 해당 함수가 가지고 있는 데이터를 함께 복사, 저장해서 별도 함수로 활용하는 기법
+>
+>   -   FirstClassFunction이다.
 
