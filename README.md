@@ -4,5 +4,5 @@
 
 ### TODO
 ---
-1.   Mastering Pandas
-2.   Docker, Kubernetes
+1. Mastering Pandas
+2. Airflow
