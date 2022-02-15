@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "0e98a401cbf79d78",
+    "type": "split",
+    "children": [
+      {
+        "id": "ba16979826a0b1b9",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Python - Class.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2f8a02b8e4761c0e",
+    "type": "split",
+    "children": [
+      {
+        "id": "703aa244efadc816",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6e33ceb724c29e46",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "b08e2f9cc7bb1051",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "451c0a092f979bc7",
+    "type": "split",
+    "children": [
+      {
+        "id": "4b0993f7ce7bac85",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1750d1c0ecac2fd5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Python - Class.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "ba16979826a0b1b9",
+  "lastOpenFiles": [
+    "Python - Class.md",
+    "Functional Progamming.md"
+  ]
+}
