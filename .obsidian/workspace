@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Better way 24.None과 독스트링을 사용해 동적인 디폴트 인자를 지정하라.md",
+            "file": "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway29. 대입식을 사용해 컴프리헨션 안에서 반복 작업을 피하라.md",
             "mode": "source",
             "source": false
           }
@@ -53,7 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 190
+    "width": 263
   },
   "right": {
     "id": "451c0a092f979bc7",
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Better way 24.None과 독스트링을 사용해 동적인 디폴트 인자를 지정하라.md",
+                "file": "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway29. 대입식을 사용해 컴프리헨션 안에서 반복 작업을 피하라.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,15 +89,15 @@
   },
   "active": "fa1d3b9245c01a78",
   "lastOpenFiles": [
-    "Better way 24.None과 독스트링을 사용해 동적인 디폴트 인자를 지정하라.md",
-    "Python/CleanCode/Better way 23. 키워드 인자로 선택적인 기능을 제공하라.md",
-    "Python/CleanCode/Better way 25. 위치로만 인자를 지정하게 하거나 키워드로만 인자를 지정하게 해서 함수 호출으.md",
-    "Python/CleanCode/Better way 25. 위치로만....md",
-    "Python/CleanCode/Better way 21. 변수 영역과 클로저의 상호작용 방식을 이해하라.md",
-    "Python/CleanCode/Better way 22. 변수 위치 인자를 사용해 시각적인 잡음을 줄여라.md",
-    "무제노트.md",
-    "Python/CleanCode/Better way 26. functools.wrap을 사용해 함수 데코레이터를 정의하라.md",
-    "Python - concurrent.futures - 병렬 작업 실행하기.md",
-    "Python - Class.md"
+    "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway29. 대입식을 사용해 컴프리헨션 안에서 반복 작업을 피하라.md",
+    "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway28.컴프리헨션 내부에 제어 하위식을 세 개 이상 사용하지 말라.md",
+    "Python/CleanCode/4장.컴프리헨션과 제너레이터/소개.md",
+    "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway27.map과 filter 대신 컴프리헨션을 사용하라.md",
+    "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterwat30.컴프리헨션 내부에 제어 하위 식을 세 개 이상 사용하지 말라.md",
+    "Python/CleanCode/함수/Better way 21. 변수 영역과 클로저의 상호작용 방식을 이해하라.md",
+    "Python/CleanCode/무제노트.md",
+    "Python/CleanCode/함수/Better way 24.None과 독스트링을 사용해 동적인 디폴트 인자를 지정하라.md",
+    "무제노트 1.md",
+    "Python/CleanCode/함수/Better way 23. 키워드 인자로 선택적인 기능을 제공하라.md"
   ]
 }
