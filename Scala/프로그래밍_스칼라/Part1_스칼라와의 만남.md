@@ -70,17 +70,195 @@
 - 여기서는 시작하는 데 필요한 기본적인 내용만 다룬다.
 - sbt 명령을 시작할 때 어떤 작업을 수행할지 지정하지 않는다면, SBT는 대화형 REPL로 시작한다.
 ```linux
-> help     # 명령을 설명한다.
-> tasks    # 현재 사용 가능한 작업 중 가장 일반적으로 사용하는 것들을 보여준다.
-> tasks -V # 모든 가용 작업을 보여준다.
-> compile  # 코드를 증분 컴파일한다.
-> test     # 코드를 증분 컴파일하고 테스트를 실행한다.
-> clean    # 빌드로 산출된 결과물(중간 파일 등 포함)을 지운다.
-> ~test    # 저장된 파일이 바뀌면 증분 컴파일과 테스트를 진행한다.
->          # 작업 앞에 '~'를 붙이면 프로젝트 파일을 감시하다가,
->          # 일부 또는 전부가 변경되는 경우 작업을 실행한다는 뜻이다.
-> console  # 스칼라 REPL을 실행한다.
-> run      # 프로젝트의 'main' 루틴 중 하나를 실행한다.
-> show x   # 변수 'x'의 정의를 본다.
-> exit     # REPL을 종료한다.(= Ctrl-D)
+	> help     # 명령을 설명한다.
+	> tasks    # 현재 사용 가능한 작업 중 가장 일반적으로 사용하는 것들을 보여준다.
+	> tasks -V # 모든 가용 작업을 보여준다.
+	> compile  # 코드를 증분 컴파일한다.
+	> test     # 코드를 증분 컴파일하고 테스트를 실행한다.
+	> clean    # 빌드로 산출된 결과물(중간 파일 등 포함)을 지운다.
+	> ~test    # 저장된 파일이 바뀌면 증분 컴파일과 테스트를 진행한다.
+	>          # 작업 앞에 '~'를 붙이면 프로젝트 파일을 감시하다가,
+	>          # 일부 또는 전부가 변경되는 경우 작업을 실행한다는 뜻이다.
+	> console  # 스칼라 REPL을 실행한다.
+	> run      # 프로젝트의 'main' 루틴 중 하나를 실행한다.
+	> show x   # 변수 'x'의 정의를 본다.
+	> exit     # REPL을 종료한다.(= Ctrl-D)
 ```
+
+- 나는 `~test` 를 사용해서 항상 변경 사항을 컴파일하고 관련 테스트를 실행함
+- SBT는 증분 컴파일러(Incremental Compiler)와 테스트 실행기(Test Runner)를 사용함
+- 매번 전체를 새로 빌드할 때까지 기다릴 필요가 없음
+- `~test` 상태에서 다른 명령을 실행하거나 sbt를 종료하고 싶다면 리턴키를 누르면 됨
+
+- `console` 을 실행하면 SBT는 먼저 프로젝트를 빌드하고 빌드한 프로젝트 결과를 CLASSPATH에 등록해서 스칼라가 사용할 수 있게 함
+- 따라서 작성한 코드를 REPL에서 실험할 수 있음
+
+> TIP.
+> - 스칼라 REPL을 사용하면 API를 배우고 스칼라 코드의 관용구를 익히는 데 매우 효율적이다.
+> - 심지어 자바 API도 익힐 수 있다.
+> - SBT에서 console로 스칼라 REPL을 시작하면 프로젝트 의존관계와 컴파일한 프로젝트를 모두 CLASSPATH에 등록해주기 때문에 편리하다.
+
+
+### 1.2.2 스칼라 명령행 도구 실행하기
+---
+- 스칼라 명령행 도구를 별도로 설치했다면 , 자바 컴파일러 javac와 비슷하게 scalac라는 명령으로 스칼라 컴파일러를 사용할 수 있다.
+- 이 책에서는 직접 컴파일러를 사용하지는 않고 SBT를 활용해 빌드할 것이다.
+
+- scalac를 사용한 커맨드라인
+	```linux
+	$ scalac -version
+	$ scalac -help
+	```
+
+- scala를 사용한 커맨드라인
+	```linux
+	$ scala -version
+	$ scala -help
+	```
+
+- 때떄로 scala를 사용해서 스칼라 '스크립트' 파일을 실행할 것이다.
+- java 명령에는 이런 기능이 없다.
+- 코드 예제에서 다음 스크립트를 살펴보자.
+```scala
+	// src/main/scala/progscala2/introscala/upper1.sc
+	
+	class Upper {
+		def upper(strings: String*): Seq[String] = {
+			strings.map((s: String) => s.toUpperCase())
+		}
+	}
+	
+	val up = new Upper
+	println(up.upper("Hello", "World!"))
+```
+
+- scala 명령으로 실행한다.
+	```linux
+	$ scala path/upper1.sc
+	ArrayBuffer(HELLO, WORLD!)
+	```
+
+- 다음은 몇 가지 유용한 명령을 보여주는 REPL 세션이다.
+```linux
+	$ scala
+	scala> :help
+
+	scala> val s = "Hello, World!"
+	s: String = Hello, World!
+
+	scala> println("Hello, World!")
+	Hello, World!
+
+	scala> 1 + 2
+	res3: Int = 3
+
+	scala> s.con<tab>
+	concat    contains    contentEquals
+
+	scala> s.contains("el")
+	res4: Boolean = true
+
+	scala> :quit
+	$   # 다시 shell로 돌아옴
+```
+
+---
+# 1.3 스칼라 맛보기
+
+> 1장의 나머지와 이어지는 2, 3장에 걸쳐 여러 스칼라 기능을 빠르게 살펴볼 것이다.
+
+- IDE를 사용하지 않는다면 가능한 SBT를 사용하길 권한다. 
+- 실제로 IDE를 더 선호한다고 해도, 커맨드 창에서 SBT를 한번 실행해서 모양을 살피라.
+- 이 책의 저자는 IDE를 거의 사용하지 않는다고 한다.
+
+- 셸 창에서 코드 에제의 최상위 디렉터리로 이동한 다음 sbt를 시작하자.
+```scala
+	val book = "Programming Scala"
+	// book: java.lang.String = Programming Scala
+	
+	println(book)
+	// Programming Scala
+```
+
+- `val book = "Programming Scala"`
+	- `val` 키워드를 사용해서 불변 Immutable 변수 book을 선언했다.
+	- 변경 가능한 데이터를 사용하는 것이 일반적인 버그의 원인 중 하나인 만큼 불변값을 사용하길 권장한다.
+	- 스칼라는 Literal값인 "Programming Scala"로부터 book의 타입이 `java.lang.String` 임을 추론해낸다.
+
+	- 타입 정보를 보여주거나, 선언에 명시적으로 타입 정보를 추가하는 경우, 대상 이름 뒤에 콜론(:)을 붙인 다음 타입 표기(type annotation)를 추가한다.
+
+- 스칼라의 타입 표기 방식이 자바의 관례를 따르지 않는 이유가 무엇일까 ?
+	- 스칼라에서는 타입 정보가 추론되는 경우가 많다. 따라서 코드에서 반드시 타입을 명시할 필요는 없다.
+	- 자바의 type item과 비교해서 `item: type` 방식은 콜론과 타입 표기를 생략하고 그냥 `item` 이라고 쓴 경우와는 다르게 컴파일러 구문분석의 모호함을 없애준다.
+
+- 일반적인 규칙으로, 스칼라는 자바 문법을 사용하는 경우 새로운 기능을 지원하기 어렵다는 등의 그럴듯한 이유가 있는 경우에만 자바 문법과 다른 방식을 택한다.
+
+
+- REPL만 사용하는 경우 길이가 긴 예제를 수정하고 다시 실행하는 과정이 번거롭다.
+- 따라서 텍스트 편집기나 IDE에서 스칼라 스크립트를 작성하는 것이 편하다.
+- 그 다음에 스크립트에 실행하거나 코드를 통째로 REPL에 복사해 넣을 수 있다.
+
+- 이 책에서는 스크립트 파일의 확장자가 .sc인 반면 컴파일할 코드는 .scala로 정해져있다.
+- 만약 확장자를 .scala로 정하면 SBT가 프로젝트를 빌드할 때 스크립트까지 컴파일하려 시도할 것이고, 스크립트는 컴파일할 수 없다.
+
+- sbt를 시작하고 console을 실행해서 스칼라를 시작하자.
+- 그 다음에 :load 명령을 사용해서 파일을 로드(컴파일 후 실행)하자.
+```linux
+	scala> :load path/upper1.sc
+	ArrayBuffer(HELLO, WORLD!)
+```
+
+- 스크립트를 컴파일할 수 없는 이유
+	- 스크립트는 단순하게 쓸 수 있도록 설계되었고, 그런 단순화 중 하나는 자바나 스칼라 코드에서와 달리 선언(변수나 함수)을 객체로 감쌀 필요가 없다는 것이다(객체로 감싸는 것은 JVM의 요구 사항이다).
+	- `scala` 명령은 이런 상충되는 두 가지 조건을 해결하기 위해 교묘한 방법을 사용한다.
+	- 즉, 스크립트를 여러분이 볼 수 없는 익명 객체로 둘러싼다.
+
+	- 정말로 스크립트를 JVM 바이트 코드(여러 `*.class` 파일)로 컴파일하고 싶다면 `scalac -Xscript <object>` 인자를 지정해야 한다.
+	- `<object>` 는 원하는 객체의 이름으로, 만들어질 자바 애플리케이션의 'main' 클래스의 이름이 된다.
+
+```linux
+	$ scalac -Xscript Upper1 path/upper1.sc
+	$ scala Upper1
+	ArrayBuffer(HELLO, WORLD!)
+```
+
+- 현재 디렉터리를 살펴보면 몇 가지 우스운 이름의 `*.class` 파일을 볼 수 있다.
+- (힌트: 일부는 **익명 함수**를 객체로 반환한 결과이다.)
+- `javap` 와 그에 상응하는 `scalap` 를 사용해서 역공학해보자.
+```linux
+$ javap -cp . Upper1
+Compiled from "upper1.sc"
+public final class Upper1 {
+	public static void main(java.lang.String[]);
+}
+$ scalap -cp . Upper1
+object Upper1 extends scala.AnyRef {
+	def this() = { /* Compiled Code */ }
+	def main(argv: scala.Array[scala.Predef.String]): scala.Unit =
+		{ /* Compiled Code */ }
+}
+```
+
+- 다시 코드를 본다.
+```scala
+// path/upper1.sc
+
+class Upper {
+	def upper(strings: String*): Seq[String] = {
+		strings.map((s: String) => s.toUpperCase())
+	}
+}
+
+val up = new Upper
+println(up.upper("Hello", "World!"))
+```
+
+- Upper 클래스에 있는 upper 메서드는 하나 이상의 입력 문자열을 대문자로 바꿔서 Seq로 반환한다.
+- 마지막 두 줄은 Upper의 인스턴스를 만들고 문자열 "Hello"와 "World!"를 대문자로 바꾼 다음, 결과로 얻은 Seq를 마지막에 출력한다.
+
+- 스칼라에서 클래스는 `class` 키워드로 시작하며, 전체 클래스 본문은 중괄호 사이에 위치한다.
+- 실제로는 클래스의 본문이 그 클래스의 주 생성자(Primary Constructor)다.
+- 이 생성자가 매개변수를 받아야 한다면 클래스 이름 Upper 뒤에 매개변수 목록을 추가할 수 있다.
+
+- 다음 코드는 메서드 정의를 시작한다.
+- `def upper(strings: String*): Seq[String] = ...`
