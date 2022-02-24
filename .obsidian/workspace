@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "88cbb8e7022068f1",
+        "id": "2ecd2cef0679232c",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -88,7 +88,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "88cbb8e7022068f1",
+  "active": "2ecd2cef0679232c",
   "lastOpenFiles": [
     "Scala/프로그래밍_스칼라/Part1_스칼라와의 만남.md",
     "Python/concurrent.futures/병렬처리.md",
