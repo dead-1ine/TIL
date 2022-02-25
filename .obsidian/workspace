@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "2ecd2cef0679232c",
+        "id": "848a02db885cdc7a",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -88,9 +88,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "2ecd2cef0679232c",
+  "active": "848a02db885cdc7a",
   "lastOpenFiles": [
     "Scala/프로그래밍_스칼라/Part1_스칼라와의 만남.md",
+    "무제노트 2.md",
     "Python/concurrent.futures/병렬처리.md",
     "무제노트.md",
     "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway29. 대입식을 사용해 컴프리헨션 안에서 반복 작업을 피하라.md",
@@ -98,7 +99,6 @@
     "Python/CleanCode/4장.컴프리헨션과 제너레이터/소개.md",
     "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway27.map과 filter 대신 컴프리헨션을 사용하라.md",
     "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterwat30.컴프리헨션 내부에 제어 하위 식을 세 개 이상 사용하지 말라.md",
-    "Python/CleanCode/함수/Better way 21. 변수 영역과 클로저의 상호작용 방식을 이해하라.md",
-    "Python/CleanCode/무제노트.md"
+    "Python/CleanCode/함수/Better way 21. 변수 영역과 클로저의 상호작용 방식을 이해하라.md"
   ]
 }
