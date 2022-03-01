@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "25439698c7e05c01",
+        "id": "bb2cd288cba91d4e",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -87,17 +87,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "25439698c7e05c01",
+  "active": "bb2cd288cba91d4e",
   "lastOpenFiles": [
     "Scala/러닝_스칼라/Chapter2.데이터로_작업하기(리터럴,값,변수,타입).md",
+    "무제노트.md",
+    "무제노트 3.md",
     "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md",
     "Scala/프로그래밍_스칼라/Part1_스칼라와의 만남.md",
     "무제노트 2.md",
     "Python/concurrent.futures/병렬처리.md",
-    "무제노트.md",
     "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway29. 대입식을 사용해 컴프리헨션 안에서 반복 작업을 피하라.md",
     "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway28.컴프리헨션 내부에 제어 하위식을 세 개 이상 사용하지 말라.md",
-    "Python/CleanCode/4장.컴프리헨션과 제너레이터/소개.md",
-    "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway27.map과 filter 대신 컴프리헨션을 사용하라.md"
+    "Python/CleanCode/4장.컴프리헨션과 제너레이터/소개.md"
   ]
 }
