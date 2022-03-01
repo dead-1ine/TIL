@@ -4,7 +4,9 @@
 
 ### TODO
 ---
-1. Mastering Pandas
-2. Pythonic
-3. Data Science
-4. Network Basic
+1. Image ML
+    - TensorFlow
+    - PyTorch
+2. Spark
+3. Docker
+4. Scala
