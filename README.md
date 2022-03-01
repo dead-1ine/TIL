@@ -5,8 +5,8 @@
 ### TODO
 ---
 1. Image ML
-  - TensorFlow
-  - PyTorch
+    - TensorFlow
+    - PyTorch
 2. Spark
 3. Docker
 4. Scala
