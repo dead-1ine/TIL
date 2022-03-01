@@ -7,8 +7,12 @@
         "id": "25439698c7e05c01",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -49,8 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 263,
-    "collapsed": true
+    "width": 263
   },
   "right": {
     "id": "451c0a092f979bc7",
@@ -66,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,6 +89,7 @@
   },
   "active": "25439698c7e05c01",
   "lastOpenFiles": [
+    "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md",
     "Scala/프로그래밍_스칼라/Part1_스칼라와의 만남.md",
     "무제노트 2.md",
     "Python/concurrent.futures/병렬처리.md",
@@ -93,7 +98,6 @@
     "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway28.컴프리헨션 내부에 제어 하위식을 세 개 이상 사용하지 말라.md",
     "Python/CleanCode/4장.컴프리헨션과 제너레이터/소개.md",
     "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway27.map과 filter 대신 컴프리헨션을 사용하라.md",
-    "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterwat30.컴프리헨션 내부에 제어 하위 식을 세 개 이상 사용하지 말라.md",
-    "Python/CleanCode/함수/Better way 21. 변수 영역과 클로저의 상호작용 방식을 이해하라.md"
+    "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterwat30.컴프리헨션 내부에 제어 하위 식을 세 개 이상 사용하지 말라.md"
   ]
 }
