@@ -10,3 +10,7 @@
 2. Spark
 3. Docker
 4. Scala
+
+#### Always Learning
+1. Math
+2. English
