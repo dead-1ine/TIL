@@ -1,41 +1,33 @@
 {
   "main": {
-    "id": "0e98a401cbf79d78",
+    "id": "87e71118f1700bc9",
     "type": "split",
     "children": [
       {
-<<<<<<< HEAD
-        "id": "5703a4e397ad9283",
-        "type": "leaf",
-        "state": {
-          "type": "empty",
-          "state": {}
-=======
-        "id": "bb2cd288cba91d4e",
+        "id": "c36990eabc58c995",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Scala/러닝_스칼라/Chapter2.데이터로_작업하기(리터럴,값,변수,타입).md",
+            "file": "Scala/러닝_스칼라/Chapter3.표현식과_조건문.md",
             "mode": "source",
             "source": false
           }
->>>>>>> 489a0d72ff4f1d0018726e845d60e27ebdf14090
         }
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "2f8a02b8e4761c0e",
+    "id": "7d192eaac57cce9a",
     "type": "split",
     "children": [
       {
-        "id": "703aa244efadc816",
+        "id": "1e2dac66bac9fe40",
         "type": "tabs",
         "children": [
           {
-            "id": "6e33ceb724c29e46",
+            "id": "c287fd007d92aa0c",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +35,7 @@
             }
           },
           {
-            "id": "b08e2f9cc7bb1051",
+            "id": "84f3336967d84e0a",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,31 +53,24 @@
       }
     ],
     "direction": "horizontal",
-<<<<<<< HEAD
-    "width": 263,
+    "width": 300,
     "collapsed": true
-=======
-    "width": 263
->>>>>>> 489a0d72ff4f1d0018726e845d60e27ebdf14090
   },
   "right": {
-    "id": "451c0a092f979bc7",
+    "id": "868a4ae6b4332968",
     "type": "split",
     "children": [
       {
-        "id": "4b0993f7ce7bac85",
+        "id": "2367cd6c8242e319",
         "type": "tabs",
         "children": [
           {
-            "id": "1750d1c0ecac2fd5",
+            "id": "db0d275b80ec36d4",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-<<<<<<< HEAD
-=======
-                "file": "Scala/러닝_스칼라/Chapter2.데이터로_작업하기(리터럴,값,변수,타입).md",
->>>>>>> 489a0d72ff4f1d0018726e845d60e27ebdf14090
+                "file": "Scala/러닝_스칼라/Chapter3.표현식과_조건문.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,21 +88,9 @@
     "width": 300,
     "collapsed": true
   },
-<<<<<<< HEAD
-  "active": "5703a4e397ad9283",
-=======
-  "active": "bb2cd288cba91d4e",
->>>>>>> 489a0d72ff4f1d0018726e845d60e27ebdf14090
+  "active": "c36990eabc58c995",
   "lastOpenFiles": [
-    "Scala/러닝_스칼라/Chapter2.데이터로_작업하기(리터럴,값,변수,타입).md",
-    "무제노트.md",
-    "무제노트 3.md",
-    "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md",
-    "Scala/프로그래밍_스칼라/Part1_스칼라와의 만남.md",
-    "무제노트 2.md",
-    "Python/concurrent.futures/병렬처리.md",
-    "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway29. 대입식을 사용해 컴프리헨션 안에서 반복 작업을 피하라.md",
-    "Python/CleanCode/4장.컴프리헨션과 제너레이터/Betterway28.컴프리헨션 내부에 제어 하위식을 세 개 이상 사용하지 말라.md",
-    "Python/CleanCode/4장.컴프리헨션과 제너레이터/소개.md"
+    "Scala/러닝_스칼라/Chapter3.표현식과_조건문.md",
+    "AWS/서비스 기능 설명.md"
   ]
 }
