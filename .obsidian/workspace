@@ -7,11 +7,9 @@
         "id": "c36990eabc58c995",
         "type": "leaf",
         "state": {
-          "type": "markdown",
+          "type": "pdf",
           "state": {
-            "file": "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md",
-            "mode": "source",
-            "source": false
+            "file": "Chapter2.데이터로_작업하기(리터럴,값,변수,타입).pdf"
           }
         }
       }
@@ -69,7 +67,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md",
+                "file": "Chapter2.데이터로_작업하기(리터럴,값,변수,타입).pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +87,7 @@
   },
   "active": "c36990eabc58c995",
   "lastOpenFiles": [
+    "Chapter2.데이터로_작업하기(리터럴,값,변수,타입).pdf",
     "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md",
     "Scala/러닝_스칼라/Chapter3.표현식과_조건문.md",
     "AWS/서비스 기능 설명.md"
