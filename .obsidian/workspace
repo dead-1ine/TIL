@@ -7,9 +7,11 @@
         "id": "c36990eabc58c995",
         "type": "leaf",
         "state": {
-          "type": "pdf",
+          "type": "markdown",
           "state": {
-            "file": "Chapter2.데이터로_작업하기(리터럴,값,변수,타입).pdf"
+            "file": "Linux Directory.md",
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -67,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Chapter2.데이터로_작업하기(리터럴,값,변수,타입).pdf",
+                "file": "Linux Directory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,6 +89,7 @@
   },
   "active": "c36990eabc58c995",
   "lastOpenFiles": [
+    "Linux Directory.md",
     "Chapter2.데이터로_작업하기(리터럴,값,변수,타입).pdf",
     "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md",
     "Scala/러닝_스칼라/Chapter3.표현식과_조건문.md",
