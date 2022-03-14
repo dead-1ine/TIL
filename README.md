@@ -8,6 +8,9 @@
     - TensorFlow
     - PyTorch
 2. Spark
+    - PySpark
+    - DataFrame
+    - RDD
 3. Docker
 4. Scala
 
