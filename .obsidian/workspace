@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "SQL/1_데이터를둘러싼환경의변화.md",
+            "file": "1. 데이터의 종류.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SQL/1_데이터를둘러싼환경의변화.md",
+                "file": "1. 데이터의 종류.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +89,9 @@
   },
   "active": "c36990eabc58c995",
   "lastOpenFiles": [
+    "1. 데이터의 종류.md",
+    "Spark_DataFrame.md",
+    "무제노트.md",
     "SQL/1_데이터를둘러싼환경의변화.md",
     "Linux Directory.md",
     "Chapter2.데이터로_작업하기(리터럴,값,변수,타입).pdf",
