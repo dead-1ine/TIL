@@ -17,3 +17,7 @@
 #### Always Learning
 1. Math
 2. English
+
+# Data Engineer RoadMap
+1. ETL Pipeline
+2. 데이터 분석을 위한 환경 구축
