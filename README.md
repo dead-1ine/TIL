@@ -14,6 +14,8 @@
 3. Docker
 4. Scala
 
+- 컴퓨터 이론
+
 #### Always Learning
 1. Math
 2. English
