@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "c36990eabc58c995",
+        "id": "154f6e030ce41285",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1. 데이터의 종류.md",
+            "file": "Data Engineer/데이터관련용어.md",
             "mode": "source",
             "source": false
           }
@@ -53,7 +53,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "868a4ae6b4332968",
@@ -69,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1. 데이터의 종류.md",
+                "file": "Data Engineer/데이터관련용어.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,16 +88,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "c36990eabc58c995",
+  "active": "154f6e030ce41285",
   "lastOpenFiles": [
+    "Data Engineer/데이터관련용어.md",
+    "Data Engineer/데이터엔지니어.md",
+    "Data Engineer/PipeLine.md",
     "1. 데이터의 종류.md",
     "Spark_DataFrame.md",
     "무제노트.md",
     "SQL/1_데이터를둘러싼환경의변화.md",
     "Linux Directory.md",
     "Chapter2.데이터로_작업하기(리터럴,값,변수,타입).pdf",
-    "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md",
-    "Scala/러닝_스칼라/Chapter3.표현식과_조건문.md",
-    "AWS/서비스 기능 설명.md"
+    "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md"
   ]
 }
