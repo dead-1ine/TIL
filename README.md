@@ -4,17 +4,14 @@
 
 ### TODO
 ---
-1. Image ML
-    - TensorFlow
-    - PyTorch
-2. Spark
-    - PySpark
-    - DataFrame
-    - RDD
-3. Docker
-4. Scala
 
-- 컴퓨터 이론
+1. Spark
+    - DataFrame
+    - Spark-SQL
+
+2. MAB
+3. Thompson Sampling
+4. MongoDB, DocumentDB
 
 #### Always Learning
 1. Math

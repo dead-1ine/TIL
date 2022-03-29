@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Data Engineer/데이터관련용어.md",
+            "file": "SQL/JOIN.md",
             "mode": "source",
             "source": false
           }
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Data Engineer/데이터관련용어.md",
+                "file": "SQL/JOIN.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -90,15 +90,15 @@
   },
   "active": "154f6e030ce41285",
   "lastOpenFiles": [
-    "Data Engineer/데이터관련용어.md",
-    "Data Engineer/데이터엔지니어.md",
-    "Data Engineer/PipeLine.md",
-    "1. 데이터의 종류.md",
-    "Spark_DataFrame.md",
-    "무제노트.md",
+    "SQL/JOIN.md",
+    "SQL/GroupBy.md",
+    "SQL/Partition.md",
     "SQL/1_데이터를둘러싼환경의변화.md",
-    "Linux Directory.md",
-    "Chapter2.데이터로_작업하기(리터럴,값,변수,타입).pdf",
-    "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md"
+    "DataEngineer.md",
+    "회귀분석이란?.md",
+    "깔끔한코드10가지규칙.md",
+    "개발용어.md",
+    "1. 데이터의 종류.md",
+    "Data Engineer/데이터관련용어.md"
   ]
 }
