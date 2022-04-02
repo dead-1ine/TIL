@@ -26,3 +26,27 @@ paths = list(map(lambda x: path.format(x.year, str(x.month).zfill(2), str(x.day)
 raw_df = spark.read.parquet(*paths)
 ```
 
+
+
+- 현재 사용하는 프로그램인 Amplitude는 UTC를 기준으로 데이터가 생성된다.
+- 이 UTC에 9시간을 더하면 KST가 된다.
+
+
+
+### Spark timestamp to date
+
+---
+
+```python
+# timestamp로 되어 있는 값을 date로 변경
+# timestamp가 ns로 되어 있으면 / 1000을 하면 됨
+raw_df = raw_df.withColumn('receive_time', from_unixtime(col('receive_time')/1000))
+
+# UTC에서 expr()을 활용해 9시간을 더하여 KST로 변환
+raw_df = raw_df.withColumn('receive_time', col('receive_time') + expr('INTERVAL 9 HOURS'))
+
+raw_df.select(min(col('receive_time'), max(col('receive_time')))).show()
+```
+
+
+
