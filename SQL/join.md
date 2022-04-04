@@ -14,11 +14,8 @@ JOIN table2 [table2의 별칭] ON table1.col1 = table2.col2
 
 - 조인 시에 table1과 table2에서 어떤  컬럼을 기준으로 조인할지 ON 뒤에 작성한다.
 
-<<<<<<< HEAD
-=======
 = 교집합
 
->>>>>>> 1b160f68c7b620f1fcb6ecfa1ab2f1a8c49dc467
 ## OUTER JOIN
 ---
 ![[CA57C7DA-954C-4035-A1D1-44823695E756.png]]
@@ -29,14 +26,9 @@ JOIN table2 [table2의 별칭] ON table1.col1 = table2.col2
 - Outer Join은 두 테이블의 공통 영역을 포함해 한 쪽 테이블의 다른 데이터를 포함하는 조인방식이다.
 - Left와 Outer를 정하는 기준은 FROM 절에 적은 테이블이 Left가 되고, JOIN 절에 적은 테이블이 Right가 된다.
 
-<<<<<<< HEAD
-- Left Join
-	조인문의 왼쪽 테이블의 모든 결과를 가져온 후 오른쪽 테이블의 데이터를 매칭하고, 매칭되는 데이터가 없는 경우 NULL로 표시한다.
-=======
 - Left
 	조인문의 왼쪽 테이블의 모든 결과를 가져온 후 오른쪽 테이블의 데이터를 매칭하고, 매칭되는 데이터가 없는 경우 NULL로 표시한다.
 - Right
 	조인문의 오른쪽 테이블의 모든 결과를 가져온 후 왼쪽 테이블의 데이터를 매칭하고, 매칭되는 데이터가 없는 경우 NULl로 표시한다.
 - Full
 	Left와 Right를 합친 것으로, 양쪽 모두 조건이 일치하지 않는 것까지 모두 결합해 출력한다. = 합집합
->>>>>>> 1b160f68c7b620f1fcb6ecfa1ab2f1a8c49dc467

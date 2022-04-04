@@ -7,11 +7,9 @@
         "id": "154f6e030ce41285",
         "type": "leaf",
         "state": {
-          "type": "markdown",
+          "type": "image",
           "state": {
-            "file": "SQL/JOIN.md",
-            "mode": "source",
-            "source": false
+            "file": "스크린샷 2022-03-27 오후 9.36.27.png"
           }
         }
       }
@@ -53,8 +51,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "868a4ae6b4332968",
@@ -70,7 +67,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SQL/JOIN.md",
+                "file": "스크린샷 2022-03-27 오후 9.36.27.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -90,15 +87,15 @@
   },
   "active": "154f6e030ce41285",
   "lastOpenFiles": [
+    "스크린샷 2022-03-27 오후 9.36.27.png",
+    "스크린샷 2022-03-27 오후 9.35.11.png",
+    "스크린샷 2022-03-27 오후 9.34.44.png",
+    "스크린샷 2022-03-27 오후 9.34.59.png",
     "SQL/JOIN.md",
     "SQL/GroupBy.md",
     "SQL/Partition.md",
     "SQL/1_데이터를둘러싼환경의변화.md",
     "DataEngineer.md",
-    "회귀분석이란?.md",
-    "깔끔한코드10가지규칙.md",
-    "개발용어.md",
-    "1. 데이터의 종류.md",
-    "Data Engineer/데이터관련용어.md"
+    "회귀분석이란?.md"
   ]
 }
