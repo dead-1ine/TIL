@@ -8,10 +8,11 @@
 1. Spark
     - DataFrame
     - Spark-SQL
-
-2. MAB
+2. MAB(Multi-Amred Bandit)
 3. Thompson Sampling
 4. MongoDB, DocumentDB
+5. Airflow
+6. AWS Glue
 
 #### Always Learning
 1. Math
