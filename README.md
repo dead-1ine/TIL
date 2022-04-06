@@ -22,3 +22,7 @@
 1. ETL Pipeline
 2. 데이터 분석을 위한 환경 구축
 3. Data Product Developing
+
+# TOBE
+---
+1. Open Source 컨트리뷰터 되기
