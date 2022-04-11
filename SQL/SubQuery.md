@@ -60,3 +60,18 @@ ORDER BY C1, C2, C3;
 
 
 
+### 다중 컬럼 서브쿼리
+
+-   서브쿼리 결과로 여러 개의 컬럼이 반환되어 메인쿼리의 조건과 동시에 비교되는 것을 의미한다.
+
+```sql
+SELECT C1, C2, C3
+FROM T1
+WHERE (C1, C2) IN (SELECT C1, C2
+                  FROM T2
+                  WHERE C2 = '3')
+ORDER BY C1, C2, C3;
+```
+
+
+
