@@ -75,3 +75,16 @@ ORDER BY C1, C2, C3;
 
 
 
+### 연관 서브쿼리
+
+-   서브쿼리 내에 메인쿼리 컬럼이 사용된 서브쿼리이다.
+
+```sql
+SELECT T1.C1, T1.C2, T1.C3
+FROM T1 T1
+WHERE (T1.C1, T1.C2) IN (SELECT T2.C1, T2.C2
+                        FROM T2 T2
+                        WHERE T2.C2 = T1.C2) -- 메인 쿼리의 컬럼을 서브쿼리에 사용
+ORDER BY T1.C1, T1.C2, T1.C3;
+```
+
