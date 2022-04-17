@@ -192,7 +192,7 @@ let s = t.string // "a"
 
 // # Type Casting
 // - 타입 판정
-// 값의 타입을 확인하려면 is 연산자를 사용하면 된다
+    // 값의 타입을 확인하려면 is 연산자를 사용하면 된다
 let a: Any = 12
 let b = a is Int // true
 

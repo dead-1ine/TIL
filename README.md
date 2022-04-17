@@ -8,11 +8,8 @@
 1. Spark
     - DataFrame
     - Spark-SQL
-2. MAB(Multi-Amred Bandit)
-3. Thompson Sampling
-4. MongoDB, DocumentDB
-5. Airflow
-6. AWS Glue
+2. Airflow
+3. AWS Glue
 
 #### Always Learning
 1. Math
@@ -23,8 +20,6 @@
 2. 데이터 분석을 위한 환경 구축
 3. Data Product Developing
 
-# TOBE
+# WANT TO BE
 ---
-1. Open Source 컨트리뷰터 되기
-
-
+1. Open Source Contributer
