@@ -4,13 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "154f6e030ce41285",
+        "id": "9bc37505b26549da",
         "type": "leaf",
         "state": {
-          "type": "image",
-          "state": {
-            "file": "스크린샷 2022-03-27 오후 9.36.27.png"
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -67,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "스크린샷 2022-03-27 오후 9.36.27.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,17 +82,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "154f6e030ce41285",
+  "active": "9bc37505b26549da",
   "lastOpenFiles": [
-    "스크린샷 2022-03-27 오후 9.36.27.png",
-    "스크린샷 2022-03-27 오후 9.35.11.png",
-    "스크린샷 2022-03-27 오후 9.34.44.png",
-    "스크린샷 2022-03-27 오후 9.34.59.png",
-    "SQL/JOIN.md",
-    "SQL/GroupBy.md",
-    "SQL/Partition.md",
-    "SQL/1_데이터를둘러싼환경의변화.md",
-    "DataEngineer.md",
-    "회귀분석이란?.md"
+    "Algorithm/추천 알고리즘개념.md",
+    "Apache/Airflow.md",
+    "Data Engineer/DataEngineer.md",
+    "JAVA/컬렉션 프레임워크 (Collection Framework).md",
+    "JAVA/예외처리 (Exception Handling).md",
+    "JAVA/람다식(Lambda Expression).md",
+    "ML/대표알고리즘.md",
+    "Python/concurrent.futures/병렬처리.md",
+    "Scala/러닝_스칼라/Chapter2.데이터로_작업하기(리터럴,값,변수,타입) 2.md",
+    "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md"
   ]
 }
