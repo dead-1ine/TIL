@@ -7,8 +7,12 @@
         "id": "9bc37505b26549da",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "Apache/Spark/Spark_Partition.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -49,7 +53,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "868a4ae6b4332968",
@@ -65,6 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Apache/Spark/Spark_Partition.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,6 +90,7 @@
   },
   "active": "9bc37505b26549da",
   "lastOpenFiles": [
+    "Apache/Spark/Spark_Partition.md",
     "Algorithm/추천 알고리즘개념.md",
     "Apache/Airflow.md",
     "Data Engineer/DataEngineer.md",
@@ -92,7 +99,6 @@
     "JAVA/람다식(Lambda Expression).md",
     "ML/대표알고리즘.md",
     "Python/concurrent.futures/병렬처리.md",
-    "Scala/러닝_스칼라/Chapter2.데이터로_작업하기(리터럴,값,변수,타입) 2.md",
-    "Scala/러닝_스칼라/Chapter1.Scala_시작하기.md"
+    "Scala/러닝_스칼라/Chapter2.데이터로_작업하기(리터럴,값,변수,타입) 2.md"
   ]
 }
