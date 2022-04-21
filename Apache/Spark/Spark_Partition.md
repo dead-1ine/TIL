@@ -39,3 +39,6 @@ Input Partition은 처음 파일을 읽을 때 생성하는 Partition이다.
 	- 파일 하나의 크기가 매우 크고 수도 많다면 설정값의 크기를 늘리고 자원도 늘려야 하지만 이런 경우는 잘 없다고 한다.
 	- 또한, 필요한 컬럼만 사용하기 때문에 데이터의 크기는 더 작아진다.
 
+
+
+출처: https://tech.kakao.com/2021/10/08/spark-shuffle-partition/
