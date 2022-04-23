@@ -14,6 +14,7 @@
 #### Always Learning
 1. Math
 2. English
+3. Computer Science
 
 # Data Engineer RoadMap
 1. ETL Pipeline
