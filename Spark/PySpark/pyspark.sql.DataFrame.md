@@ -35,3 +35,21 @@ colRegex(colName)
 - Parameters:
 	- colName : str
 		string, column name specified as a regex
+
+collect()
+	Returns all the records as a list of Row.
+- Example
+```python
+df.collect()
+[Row(age=2, name='Alice'), Row(age=5, name='Bob')]
+```
+
+corr(col1, col2[, method])
+	Calculates the correlation of two columns of a DataFrame as a double value.
+- Parameters:
+	- col1 : str
+		The name of the first column
+	- col2 : str
+		The name of the second column
+	- method : str, optional
+		The correlation method. Currently only supports "pearson"
