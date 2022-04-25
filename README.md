@@ -10,6 +10,7 @@
     - Spark-SQL
 2. Airflow
 3. AWS Glue
+4. Data Pipeline
 
 #### Always Learning
 1. Math
@@ -18,8 +19,7 @@
 
 # Data Engineer RoadMap
 1. ETL Pipeline
-2. 데이터 분석을 위한 환경 구축
-3. Data Product Developing
+2. Apache
 
 # WANT TO BE
 ---
