@@ -10,7 +10,8 @@
     - Spark-SQL
 2. Airflow
 3. AWS Glue
-4. Data Pipeline
+4. Scala
+5. Hadoop EcoSystem
 
 #### Always Learning
 1. Math
