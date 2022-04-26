@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Spark/PySpark/pyspark.sql.DataFrame.md",
+            "file": "Scala/Programmers/익명함수1.md",
             "mode": "source",
             "source": false
           }
@@ -53,7 +53,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "868a4ae6b4332968",
@@ -69,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Spark/PySpark/pyspark.sql.DataFrame.md",
+                "file": "Scala/Programmers/익명함수1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,15 +90,15 @@
   },
   "active": "244a5ea47359bcf4",
   "lastOpenFiles": [
+    "Scala/Programmers/익명함수1.md",
+    "Scala/Programmers/메소드 정의.md",
+    "Scala/Programmers/문자열 다루기.md",
+    "Scala/Programmers/숫자 다루기.md",
+    "Scala/Programmers/Range와 List.md",
+    "Scala/Programmers/변수 출력하기.md",
+    "Scala/Programmers/변수와 상수.md",
     "Spark/PySpark/pyspark.sql.DataFrame.md",
     "Pandas/1.PandasDatafrom 만들기.md",
-    "Spark/Spark_Partition.md",
-    "Algorithm/추천 알고리즘개념.md",
-    "Apache/Airflow.md",
-    "Data Engineer/DataEngineer.md",
-    "JAVA/컬렉션 프레임워크 (Collection Framework).md",
-    "JAVA/예외처리 (Exception Handling).md",
-    "JAVA/람다식(Lambda Expression).md",
-    "ML/대표알고리즘.md"
+    "Spark/Spark_Partition.md"
   ]
 }
