@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "244a5ea47359bcf4",
+        "id": "4219df7fb54328ea",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Scala/Programmers/익명함수2.md",
+            "file": "Scala/Programmers/튜플.md",
             "mode": "source",
             "source": false
           }
@@ -53,8 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "868a4ae6b4332968",
@@ -70,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Scala/Programmers/익명함수2.md",
+                "file": "Scala/Programmers/튜플.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,8 +87,9 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "244a5ea47359bcf4",
+  "active": "4219df7fb54328ea",
   "lastOpenFiles": [
+    "Scala/Programmers/튜플.md",
     "Scala/Programmers/익명함수2.md",
     "Scala/Programmers/익명함수1.md",
     "Scala/Programmers/메소드 정의.md",
@@ -98,7 +98,6 @@
     "Scala/Programmers/Range와 List.md",
     "Scala/Programmers/변수 출력하기.md",
     "Scala/Programmers/변수와 상수.md",
-    "Spark/PySpark/pyspark.sql.DataFrame.md",
-    "Pandas/1.PandasDatafrom 만들기.md"
+    "Spark/PySpark/pyspark.sql.DataFrame.md"
   ]
 }
