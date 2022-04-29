@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Scala/Programmers/튜플.md",
+            "file": "Scala/Programmers/반복문.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Scala/Programmers/튜플.md",
+                "file": "Scala/Programmers/반복문.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,15 +89,15 @@
   },
   "active": "4219df7fb54328ea",
   "lastOpenFiles": [
+    "Scala/Programmers/반복문.md",
+    "Scala/Programmers/여러개의 값 리턴.md",
+    "Scala/Programmers/변수에 값 넣기.md",
     "Scala/Programmers/튜플.md",
     "Scala/Programmers/익명함수2.md",
     "Scala/Programmers/익명함수1.md",
     "Scala/Programmers/메소드 정의.md",
     "Scala/Programmers/문자열 다루기.md",
     "Scala/Programmers/숫자 다루기.md",
-    "Scala/Programmers/Range와 List.md",
-    "Scala/Programmers/변수 출력하기.md",
-    "Scala/Programmers/변수와 상수.md",
-    "Spark/PySpark/pyspark.sql.DataFrame.md"
+    "Scala/Programmers/Range와 List.md"
   ]
 }
