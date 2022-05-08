@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Scala/Programmers/Array.md",
+            "file": "Scala/Programmers/List.md",
             "mode": "source",
             "source": false
           }
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Scala/Programmers/Array.md",
+                "file": "Scala/Programmers/List.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -90,6 +90,7 @@
   },
   "active": "4219df7fb54328ea",
   "lastOpenFiles": [
+    "Scala/Programmers/List.md",
     "Scala/Programmers/Array.md",
     "Scala/Programmers/if문.md",
     "Scala/Programmers/중첩된 for문.md",
@@ -98,7 +99,6 @@
     "Scala/Programmers/변수에 값 넣기.md",
     "Scala/Programmers/튜플.md",
     "Scala/Programmers/익명함수2.md",
-    "Scala/Programmers/익명함수1.md",
-    "Scala/Programmers/메소드 정의.md"
+    "Scala/Programmers/익명함수1.md"
   ]
 }
