@@ -6,22 +6,20 @@
 ---
 
 1. Spark
-    - DataFrame
-    - Spark-SQL
-2. Airflow
+2. Airflow DAG
 3. AWS Glue
-4. Scala
-5. Hadoop EcoSystem
 
 #### Always Learning
-1. Math
-2. English
-3. Computer Science
+1. Computer Science
+2. Math
+3. English
 
-# Data Engineer RoadMap
+### Data Engineer RoadMap
+
 1. ETL Pipeline
-2. Apache
+2. Apache OpenSource
 
 # WANT TO BE
 ---
 1. Open Source Contributer
+1. Data Engineer
