@@ -11,15 +11,15 @@
 
 #### Always Learning
 1. Computer Science
-2. Math
-3. English
+2. English
+3. Math
 
 ### Data Engineer RoadMap
 
 1. ETL Pipeline
-2. Apache OpenSource
+2. Apache OpenSources
 
 # WANT TO BE
 ---
 1. Open Source Contributer
-1. Data Engineer
+2. Data Engineer
