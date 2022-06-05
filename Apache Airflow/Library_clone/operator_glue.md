@@ -54,7 +54,61 @@ class GlueJObOperator(BaseOperator):
         self.wait_for_completion = wait_for_completion
         
     def execute(self, context: 'Context'):
-        
-        
+        if self.script_location is None:
+            s3_script_location = None
+        elif not self.script_location.stratwith(self.s3_protocol):
+            s3_hook = S3Hook(aws_conn_id=self.aws_conn_id)
+            script_name = os.path.basename(self.script_location)
+            s3_hook.load_file(
+            	self.script_location, self.s3_artifacts_perfix + script_name, bucket_name=self.s3_bucket)
+            s3_script_location = f"s3://{self.s3_bucket}/{self.s3_artifacts_prefix}{script_name}"
+        else:
+            s3_script_location = self.script_location
+        glue_job = GlueJobHook(
+        	job_name=self.job_name,
+            desc=self.job_desc,
+            concurrent_run_limit=self.concurrent_run_limit,
+            script_location=s3_script_location,
+            retry_limit=self.retry_limit,
+            num_of_dpus=self.num_of_dpus,
+            aws_conn_id=self.aws_conn_id,
+            region_name=self.region_name,
+            s3_bucket=self.s3_bucket,
+            iam_role_name=self.iam_role_name,
+            create_job_kwargs=self.create_job_kwargs,
+        )
+        self.log.info(
+        	"Initializing AWS Glue Job; %s. Wait for completion: %s", 
+        	self.job_name,
+        	self.wait_for_completion
+        )
+        glue_job_run = glue_job.initialize_job(self.script_args, self.run_job_kwargs)
+        if self.wait_for_completion:
+        	glue_job_run = glue_job.job_completion(self.job_name, glue_job_run['JobRunId'])
+        	self.log.info(
+        		"AWS Glue Job: %s status: %s. Run Id: %s",
+        		self.job_name,
+        		glue_job_run['JobRunState'],
+        		glue_job_run['JobRunId'])
+		else:
+			self.log.info("AWS Glue Job: %s. Run Id: %s",
+				self.job_name,
+				glue_job_run['JobRunId'])
+		return glue_job_run['JobRunId']
+		
+class AwsGlueJobOperator(GlueJobOperator):
+	"""
+	This operator is deprecated.
+	Please use: class: `airflow.providers.amazon.aws.operators.glue.GlueJobOperator`.
+	"""
+    
+    def __init__(self, *args, **kwargs):
+    	warning.warn(
+    		"This operator is deprecated. "
+    		"Please use :class:`airflow.providers.amazon.aws.operators.glue.GlueJobOperator`.",
+    		DeprecationWarning,
+    		stacklevel=2,
+        )
+        super().__init__(*args, **kwargs)
 ```
 
