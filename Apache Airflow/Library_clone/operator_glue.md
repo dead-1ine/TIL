@@ -104,7 +104,7 @@ class AwsGlueJobOperator(GlueJobOperator):
     
     def __init__(self, *args, **kwargs):
     	warning.warn(
-    		"This operator is deprecated. "
+            "This operator is deprecated. "
     		"Please use :class:`airflow.providers.amazon.aws.operators.glue.GlueJobOperator`.",
     		DeprecationWarning,
     		stacklevel=2,
