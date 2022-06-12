@@ -80,8 +80,6 @@ my_manual_schema = new StructType([
 
 읽기와 마찬가지로  CSV 파일을 쓸 때 사용할 수 있는 다양한 옵션이 있다. maxColumns와 inferSchema 옵션 같이 데이터 쓰기에는 적용되지 않는 옵션을 제외하면 읽기와 동일한 옵션을 제공한다.
 
-
-
 - 쓰기 예제
 
     ```python 
