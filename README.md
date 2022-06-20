@@ -6,8 +6,12 @@
 ---
 
 1. Spark
+    - 회사에서 사용하는 코드를 클래스화
 2. Airflow DAG
 3. AWS Glue
+    - 개념 및 사용법 숙달
+    - Glue Crawler
+4. AWS Athena
 
 #### Always Learning
 1. Computer Science
