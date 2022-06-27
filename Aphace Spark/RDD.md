@@ -36,3 +36,7 @@ DAG의 특징은 각 노드 간의 순환이 없으며, 일정한 방향성만�
 
 
 ## RDD 동작원리
+
+
+
+참고 블로그: https://artist-developer.tistory.com/17
