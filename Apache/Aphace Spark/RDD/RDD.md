@@ -1,11 +1,5 @@
 # RDD (Resillient Distributed Dataset)
 
-스파크의 데이터 구조는 크게 세 종류로 구분할 수 있다.
-
-- RDD (Resillient Distributed Dataset)
-- Dataframe
-- Dataset
-
 
 
 ## RDD 개념
