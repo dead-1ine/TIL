@@ -5,13 +5,16 @@
 ### TODO
 ---
 
-1. Spark
-    - 회사에서 사용하는 코드를 클래스화
-2. Airflow DAG
+1. Apache Spark
+    - Streaming Processing
+2. Airflow
+    - CustomOperator
+    - CustomSensor
+    - Code Convention
 3. AWS Glue
-    - 개념 및 사용법 숙달
     - Glue Crawler
 4. AWS Athena
+5. Apache Kafka
 
 #### Always Learning
 1. Computer Science
@@ -21,7 +24,8 @@
 ### Data Engineer RoadMap
 
 1. ETL Pipeline
-2. Apache OpenSources
+2. Hadoop EcoSystem
+3. Apache Kafka
 
 # WANT TO BE
 ---
