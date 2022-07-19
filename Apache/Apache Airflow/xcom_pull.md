@@ -11,6 +11,7 @@ get_num_task = PythonOperator(
     python_callable=get_num,
     op_args=[10],
     provide_context=True # task_instance에 return값을 등록하기 위한 method
+    #provide context is for getting the TI (task instance ) parameters
 )
 
 num_b = "{{ task_instance.xcom_pull(task_id='get_num_task') }}"
