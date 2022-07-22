@@ -16,7 +16,7 @@
 4. AWS Athena
 5. Apache Kafka
 
-#### Always Learning
+#### Always Learn
 1. Computer Science
 2. English
 3. Math
