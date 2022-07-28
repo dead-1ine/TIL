@@ -39,6 +39,10 @@ Input Partition은 처음 파일을 읽을 때 생성하는 Partition이다.
 	- 파일 하나의 크기가 매우 크고 수도 많다면 설정값의 크기를 늘리고 자원도 늘려야 하지만 이런 경우는 잘 없다고 한다.
 	- 또한, 필요한 컬럼만 사용하기 때문에 데이터의 크기는 더 작아진다.
 
-
+Output Partition
+	파일을 저장할 때 생성하는 partition
+	기본적으로 HDFS는 큰 파일을 다루도록 설계되어 있어 크기가 큰 파일로 저장하는 것이 좋다.
+	일반적으로 HDFS Blocksize에 맞게 설정한다. 
+	아래는 AWS EMR의 기본 HDFS Blocksize이다
 
 출처: https://tech.kakao.com/2021/10/08/spark-shuffle-partition/
