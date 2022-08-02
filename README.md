@@ -6,11 +6,8 @@
 ---
 
 1. Apache Spark
-    - Streaming Processing
+    - Structered Streaming
 2. Airflow
-    - CustomOperator
-    - CustomSensor
-    - Code Convention
 3. AWS Glue
     - Glue Crawler
 4. AWS Athena
@@ -19,18 +16,17 @@
 #### Always Learn
 1. Computer Science
 2. English
-3. Math
+3. Mathematics
 
 ### Data Engineer RoadMap
 
 1. ETL Pipeline
 2. Hadoop EcoSystem
-3. Apache Kafka
+3. Data Batch, Streaming Processing
 
 # WANT TO BE
 ---
 1. Open Source Contributer
-2. Data Engineer
 
 
 
