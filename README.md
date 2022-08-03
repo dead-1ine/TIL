@@ -26,7 +26,7 @@
 
 # WANT TO BE
 ---
-1. Open Source Contributer
+1. Open Source Contributor
 
 
 
