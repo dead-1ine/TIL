@@ -34,3 +34,47 @@ Direct Runner를 사용해 로컬 환경에서 디버깅해볼 수도 있다는 
 모델 학습을 위해 데이터를 정제할 때 봍오 큰 코퍼스를 읽어와 여러가지 처리를 한 후 데이터셋의 형태로 만들어 저장한다. Beam은 이 과정을 매우 직관적으로 프로그래밍할 수 있도록 지원하고, 동시에 매우 많은 수의 Worker를 통해 병렬로 실행할 수 있다.
 
 GCP의 DataFlow Runner와 같이 사용할 수 있는데, DataFlow는 순식간에 몇 백대의 Worker를 만들어 데이터를 분배 후 처리하도록 명령할 수 있다. 또한 이 과정에서 데이터 처리 인프라나 클러스터 유지 관리 같은 것에 신경쓰지 않아도 된다는 점도 매우 큰 장점이다.
+
+
+
+## Objects of Beam
+
+Beam의 데이터 파이프라인을 구성하는 두 가지 주요 오브젝트는 Pcollections와 PTransformation이다.
+
+- PCollections
+    Beam의 파이프라인 안의 모든 데이터는 PCollection 안에 산다. (PCollection == Parallel Collection)
+    PCollection은 분산 데이터셋이며, Immutable한 속성을 가진다.
+- PTransforamtion
+    데이터를 트랜스포메이션하는 작업은 PTransformations(Parallel Transformation)라는 function을 통해 진행된다. input으로 PCollections를 받고 변형하여 PCollections Output을 리턴한다.
+
+
+
+### Pardo
+
+Pardo는 Beam의 가장 일반적인 parallel processing transformation이다. Pardo는 분산처리 트랜스포메이션의 Map - Shuffle - Reduce 단계 중 Map에 가깝다. 
+
+아래와 같은 일반적인 데이터 프로세싱 연산에 모두 사용된다.
+
+- Filtering a dataset
+- Formatting or type-converting each element in a dataset
+- Extracting parts of each element in a dataset
+- Performing computations on each element in a dataset
+
+아래는 Pardo를 실행하기 위한 Sample Snippet이다.(Beam에서 파이프라인 내 스텝의 연결을 위한 delimiter는 파이프(|)를 사용한다.)
+
+```python
+# The input PCollection of Strings.
+words = ...
+
+# The DoFn to perform on each element in the input PCollection.
+
+class ComputeWordLengthFn(beam.DoFn):
+    def process(self, element):
+        return [len(element)]
+    
+# Apply a Pardo to the PCollection "words" to compute lengths for each word.
+word_lengths = words | beam.ParDo(ComputeWordLengthFn())
+```
+
+
+
