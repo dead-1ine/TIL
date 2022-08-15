@@ -78,3 +78,113 @@ word_lengths = words | beam.ParDo(ComputeWordLengthFn())
 
 
 
+Beam은 Functional Programming 패러다임에 따라 디자인되었다. 따라서 loop 대신 PCollection 내의 각 데이터 처리를 위해 PTransform 함수를 연결해 사용할 수 있다. (파이프라인 내에서 'abc' >> 와 같은 형태로 comment를 사용할 수 있다.)
+
+```python
+import apache_beam as beam
+
+inputs = [0, 1, 2, 3]
+
+with beam.Pipeline() as pipeline:
+    outputs = (
+    	pipeline
+        | 'Create values' >> beam.Create(inputs)
+        | 'Multiply by 2' >> beam.Map(lambda x: x * 2)
+    )
+    
+    outputs | beam.Map(print)
+```
+
+
+
+## Windowing
+
+Windowing은 PCollection을 타임스탬프나 어떤 기준 요소로 잘라서 보는 것을 말한다. 어떤 PCollection을 논리적 윈도우로 잘라볼 수 있다. 각 요소들은 하나 혹은 그 이상의 윈도우에 속해서 GroupByKey 또는 Combine 등의 Aggregation 연산 등에 활용될 수 있다.
+
+Windowing의 방식은 세 가지가 있다.
+
+1. Fixed Time Windows
+2. Sliding Time Windows
+3. Session Windows
+
+
+
+### 1. Fixed Time Windows
+
+가장 기본적인 형태의 윈도우로, 지정된 타임스탬프 단위의 고정된 시간으로 윈도우를 잘라내는 형태로 활용한다.
+
+- 30초 단위의 Fixed Window를 설정하는 코드
+
+```python
+from apache_beam import beam, window
+
+fixed_windowed_itmes = (
+    itmes | 'window' >> beam.WindowInto(window.FixedWindows(60))
+)
+```
+
+
+
+### 2. Sliding Time Windows
+
+타임스탬프 등의 시간 기준으로 데이터 스트림을 잘라내는데 윈도우간 겹침이 가능하다. 윈도우의 길이는 duration이라고 하며, 각 윈도우가 시작되는 부분을 period라고 한다.
+
+
+
+### 3. Session Windows
+
+세션 윈도우는 윈도우 사이에 갭이 생길 수 있는 데이터의 형태에 활용할 수 있다. 정해진 Minimum gap duration보다 작은 간격을 두고 들어온 데이터는 동일한 윈도우로 처리한다. 클릭스트림 로그 ,유저 로그 등에서 유저별로 세션을 만들어서 기록할 때 활용할 수 있다.
+
+
+
+## Watermark & Late Data
+
+워터마크는 스트리밍 처리 시 늦게 도착하는 데이터의 이슈를 풀기 위한 재밌는 컨셉이다. 특정 타임스탬프 안에 들어오는 데이터를 윈도우에 넣는 형태로 데이터를 프로세싱할 때 네트워크, 클라이언트 등의 이슈로 데이터가 지연 도착하는 경우가 발생할 수 있다. 지연이 심해지면 원래의 해당 데이터가 속해야 할 윈도우의 데이터 프로세싱이 끝난 이후 도착하는 경우도 있을 수 있다. (12:30:00에 윈도우가 종료되었는데 12:29:59 타임스탬프 데이터가 12:31:00에 도착한 경우)
+
+이런 데이터의 처리를 위해 Beam에서는 Watermark라는 기능을 제공한다. 윈도우가 종료된 이후에도 계속 데이터가 들어오면 Watermark를 뒤로 미루는 식으로 다이나믹하게 Watermark를 설정할 수 있다. Watermark 내에 들어오는 데이터는 지연도착으로 분류되지 않고 같은 윈도우 내에 속할 수 있게 된다. 
+
+- Watermark: 워터마크 타임스탬프가 지정된 시간을 지나면, 시스템은 이보다 늦게 들어오는 데이터는 없을 거시라 인식한다. 즉 마지막 지각생까지 처리가 되었다고 가정한다. 그 이후에 들어오는 데이터는 설정에 따라 버려지거나 지연처리하게 된다.
+- Late Data: 워터마크 이후에 들어오는 데이터이다.
+
+Beam의 디폴트 설정은 윈도우의 끝 지점과 워터마크 지점이 동일하기 때문에, Late Data를 허용하지 않는다.
+
+- Late Data 허용 Example
+
+```python
+pc = [Initial PCollection]
+
+pc | beam.WindowInto(
+	FixedWindows(60),
+    trigger = trigger_fn,
+    accumulation_mode = accumulation_mode,
+    timestamp_combiner = timestamp_combiner,
+    allowed_lateness = Duration(seconds=2*24*60*60) # 2 days
+)
+```
+
+
+
+## Trigger
+
+스트리밍 처리된 데이터를 윈도우로 그룹핑하기 위한 기준을 트리거라고 한다. PCollection의 트리거 기준은 자유롭게 설정할 수 있다.
+
+아래는 기본적인 pre-built 트리거이다.
+
+- Event time triggers
+    Beam의 디폴트 트리거, 데이터의 타임스탬프 기준으로 윈도우를 그룹핑
+- Processing time triggers
+    파이프라인 내의 프로세싱 타임 기준 트리거
+- Data-driven triggers
+    윈도우 내 데이터를 체크하여 트리거. 현재는 데이터 개수 기준 트리거링만 제공
+- Composite tirggers
+    몇 가지 트리거를 조합해서 생성한 트리거
+
+
+
+## Beam의 장단점
+
+Beam이 Spark나 Flink와 비교했을 때 더 나은 점이 뭘까.
+
+---
+
+출처: https://jaemunbro.medium.com/gcp-dataflow-apache-beam-알아보기-a4f5f09b98d1
