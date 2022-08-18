@@ -7,6 +7,7 @@
 
 1. Apache Spark
     - Structered Streaming
+    - MlLib
 2. Airflow
 3. AWS Glue
     - Glue Crawler

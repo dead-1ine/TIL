@@ -26,3 +26,8 @@
 
 
 
+
+
+아래와 같은 글을 보며 거의 따라 쓰거나 조금 변경한 정도입니다. (개인 공부 목적)
+
+출처: https://tech.socarcorp.kr/data/2022/02/25/data-discovery-platform-01.html
