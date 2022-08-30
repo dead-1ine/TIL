@@ -3,6 +3,16 @@
 > 파이썬으로 작성한 코드를 실행한다.
 
 ```python
+from airflow.operators.python import PythonOperator
+```
+
+- args
+    - task_id
+    - python_callable
+    - op_args(Optional)
+    - op_kwargs(Optional)
+
+```python
 def print_context(ds, **kwargs):
     print(kwargs)
     print(ds)
