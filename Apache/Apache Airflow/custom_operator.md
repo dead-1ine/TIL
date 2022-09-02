@@ -103,3 +103,52 @@ run_custom_task = CustomOperator(
 
 이 구현의 단점은 오퍼레이터가 execute될 때 시작/종료 날짜를 직접 지정해야 한다는 것이다. 즉, 오퍼레이터는 DAG의 실행 날짜에 관계없이 하드코딩된 날짜 기간에 대한 데이터를 가져온다는 것이다.
 
+다행히 Airflow에서는 템플릿 가능한 오퍼레이터 변수를 만들 수 있다. 이를 통해 실행 날짜와 같은 Context Variables를 참조할 수 있다. 특정 인스턴스 변수를 템플릿으로 만들려면, `templates_fields` 클래스 변수에 해당 변수명을 지정하여 Airflow에 알려줘야 한다.
+
+- Add templates_fields
+
+```python
+class CustomOperator(BaseOperator):
+    ...
+    templates_fields = ('_start_date', '_end_date', '_output_path') # CustomOperator에서 템플릿화할 인스턴스 변수들을 Airflow에 알려준다.
+    ...
+    @apply_defaults
+    def __init__(
+    	self,
+        conn_id,
+        output_path,
+        start_date="{{ ds }}", # 기본값을 지정한 것
+        end_date="{{ next_ds }}", # 기본값을 지정한 것
+        **kwargs,
+    ):
+        super(CustomOperator, self).__init__(**kwargs)
+        
+        self._conn_id = conn_id
+        self._output_path = output_paths
+        self._start_date = start_date
+        self._end_date = end_date
+```
+
+
+
+위와 같은 방식으로 변수` _start_date, _end_date, _output_path` (이 변수들은 `__inint__` 안에서 생성된다.)가 템플릿으로 가능하다고 Airflow에 전달할 수 있다. 
+
+만약 문자열 파라미터에 Jinja Template(`{{ }}`)을 사용하면, Airflow는 `execute`메서드를 호출하기 전에 이 값들을 템플릿화한다. 그 결과 다음 리스트와 같이 템플릿화된 인수를 사용하는 오퍼레이터를 사용할 수 있다.
+
+
+
+- 오퍼레이터에서 템플릿 사용하기
+
+```python
+from custom.operators import CustomOperator
+
+run_custom_task = CustomOperator(
+	task_id='run_custom_task',
+    conn_id='connection_id',
+    start_date="{{ ds }}",
+    end_date="{{ next_ds }}",
+    output_path="/data/custom_operator/{{ ds }}.json"
+)
+```
+
+위 코드를 실행하면 Airflow는 `start_date, end_date, output_path`에 전달된 Jinja Template 형태로 감싸진 ds, next_ds로 값을 채우게 된다.
