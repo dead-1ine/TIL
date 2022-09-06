@@ -49,7 +49,7 @@ Spark의 Config를 설정할 수 있는 방법은 크게 세 가지로 나뉜다
 
 ## 1) 어플리케이션 관련 설정
 
-| Property Name                | Meaning                                                      | default             |
+| Property Name                | Meaning                                                      | Default             |
 | ---------------------------- | ------------------------------------------------------------ | ------------------- |
 | `spark.app.name`             | 어플리케이션 이름                                            | X(필수로 세팅 필요) |
 | `spark.driver.cores`         | 드라이버가 사용할 코어의 수                                  | 1                   |
@@ -59,4 +59,27 @@ Spark의 Config를 설정할 수 있는 방법은 크게 세 가지로 나뉜다
 | `spark.local.dir`            | RDD 데이터 저장 혹은 셔플 시 Mapper의 데이터를 저장하는 경로 | /tmp                |
 | `spark.master`               | 클러스터 매니저 정보                                         | -                   |
 | `spark.submit.deployMode`    | Deploy Mode 설정(client or cluster)                          | -                   |
+
+
+
+## 2) 실행환경 관련 설정
+
+| Property Name                   | Meaning                                                   | Default |
+| ------------------------------- | --------------------------------------------------------- | ------- |
+| `spark.driver.extraClassPath`   | 드라이버 클래스패스에 추가할 항목                         | -       |
+| `spark.executor.extraClassPath` | 익스큐터의 클래스패스에 추가할 항목                       | -       |
+| `spark.files`, `spark.jars`     | 각 익스큐터의 실행 dir에 위치한 파일, jars                | -       |
+| `spark.submit.pyFiles`          | PYTHON_PATH에 추가될 .zip, .egg, .py 파일                 | -       |
+| `spark.jars.package`            | 익스큐터와 드라이버의 클래스패스에 추가될 의존성 jar 정보 | -       |
+
+
+
+## 3) 셔플 관련 설정
+
+| Property Name            | Meaning                                          | Default |
+| ------------------------ | ------------------------------------------------ | ------- |
+| `spark.eventLog.enabled` | 스파크 이벤트 로그 수행 유무                     | false   |
+| `spark.ui.port`          | 스파크 UI 포트                                   | 4040    |
+| `spark.ui.killEnabled`   | 스파크 UI를 통해 job kill이 가능한지에 대한 유무 | true    |
+| `spark.ui.retainedJobs`  | 종료된 잡 정보 유지 갯수                         | -       |
 
