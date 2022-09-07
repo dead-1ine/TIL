@@ -74,7 +74,18 @@ Spark의 Config를 설정할 수 있는 방법은 크게 세 가지로 나뉜다
 
 
 
-## 3) 셔플 관련 설정
+### 3) 셔플 관련 설정
+
+| Property Name                   | Meaning                                                      | Default                  |
+| ------------------------------- | ------------------------------------------------------------ | ------------------------ |
+| `spark.reducer.maxSizeFlight`   | 셔플 시 각 리듀서가 읽어갈 때 사용할 버퍼 사이즈             | 48MB                     |
+| `spark.reducer.maxReqInFlight`  | 리듀서에서 매퍼 결과를 가져갈 때 동시에 수행가능한 최대 요청 수 | int.MaxValue(2147483647) |
+| `spark.shuffle.compress`        | 매퍼의 결과 압축 유무                                        | false                    |
+| `spark.shuffle.service.enabled` | 외부 셔플 서비스 사용 유무                                   | false                    |
+
+
+
+### 4) 스파크 UI 관련 설정
 
 | Property Name            | Meaning                                          | Default |
 | ------------------------ | ------------------------------------------------ | ------- |
@@ -82,4 +93,3 @@ Spark의 Config를 설정할 수 있는 방법은 크게 세 가지로 나뉜다
 | `spark.ui.port`          | 스파크 UI 포트                                   | 4040    |
 | `spark.ui.killEnabled`   | 스파크 UI를 통해 job kill이 가능한지에 대한 유무 | true    |
 | `spark.ui.retainedJobs`  | 종료된 잡 정보 유지 갯수                         | -       |
-
