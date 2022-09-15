@@ -8,11 +8,9 @@
 1. Apache Spark
     - Structered Streaming
     - MlLib
-2. Airflow
-3. AWS Glue
-    - Glue Crawler
-4. AWS Athena
-5. Apache Kafka
+2. Apache Airflow
+3. Apache Kafka
+4. Apache Flink
 
 #### Always Learn
 1. Computer Science
@@ -28,7 +26,6 @@
 # WANT TO BE
 ---
 1. Open Source Contributor
-
 
 
 ## 한국 데이터 엔지니어 모임
