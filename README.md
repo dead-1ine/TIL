@@ -8,10 +8,10 @@
     - Structered Streaming
     - MlLib
 2. Apache Airflow
+    - Worker, Driver 코드 까기
 3. Apache Kafka
-4. Apache Flink
 
-#### Always Learn
+#### Always Learning
 ---
 1. Computer Science
 2. English
