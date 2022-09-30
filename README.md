@@ -9,6 +9,7 @@
     - MlLib
 2. Apache Airflow
     - Worker, Driver 코드 까기
+    - 상원님 추천 영상보고 Code 확인하기
 3. Apache Kafka
 
 #### Always Learning
