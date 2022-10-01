@@ -9,8 +9,8 @@
     - MlLib
 2. Apache Airflow
     - Worker, Driver 코드 까기
-    - 상원님 추천 영상보고 Code 확인하기
-3. Apache Kafka
+    - 추천 영상보고 lib code 확인하기
+3. Apache Kafka -> Spark Streaming
 
 #### Always Learning
 ---
@@ -20,13 +20,15 @@
 
 ### Data Engineer RoadMap
 ---
-1. ETL Pipeline
-2. Hadoop EcoSystem
-3. Data Batch, Streaming Processing
+
+1. Hadoop EcoSystem
+2. Streaming Processing
 
 # WANT TO BE
 ---
-1. Open Source Contributor
+1. Open Source Contributor(in Apache)
+
+
 
 
 ## 한국 데이터 엔지니어 모임
