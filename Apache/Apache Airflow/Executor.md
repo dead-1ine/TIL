@@ -4,6 +4,15 @@ Airflow에서 Executor는 Task가 실행되는 메커니즘으로, Executor를 �
 
 
 
+Airflow에서 기본적으로 제공하는 Executor는 다음과 같다.
+
+1. SequentialExecutor(Default)
+2. LocalExecutor
+3. CeleryExecutor
+4. KubernetesExecutor
+
+
+
 ## Sequential Executor
 
 Sequential Executor는 Airflow에서 제공하는 기본 Executor로, SQLite와 함께 사용할 수 있는 Executor이다. 하나의 Task만 실행할 수 있어 병렬성을 제공하지 않아 실제 운영환경에는 적합하지 않다.
