@@ -46,11 +46,17 @@ Airflow DAG의 default_args 키워드 인자는 dict 형태의 파라미터를 �
 >
 > `{'retry_delay': timedelta(minutes=1)}`
 
-
-
 ## queue
 
+> which queue to target when running this job. Not all executors implement queue management, the CeleryExecutor does support targeting specific queues.
+
 ## pool
+
+> the slot pool this task should run in, slot pools are a way to limit concurrency for certain tasks
+
+## pool slot
+
+> the number of pool slots this task should use (>= 1) Values less than 1 are not allowed
 
 ## priority_weight
 
@@ -59,6 +65,8 @@ Airflow DAG의 default_args 키워드 인자는 dict 형태의 파라미터를 �
 ## sla
 
 ## execution_timeout
+
+> max time allowed for execution of this task instance, if it goes beyond it will raise and fail.
 
 ## on_failure_callback
 
