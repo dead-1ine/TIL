@@ -28,11 +28,25 @@ df.isStreaming # True
 
 ### Read Options
 
-| 옵션명                  | 설명                                                       |
-| ----------------------- | ---------------------------------------------------------- |
-| kafka.bootstrap.servers | 카프카 서버                                                |
-| subscribe               | 카프카 토픽(구독할 주체)                                   |
-| startingOffsets         | Streaming App이 새로 시작될 때 적용되는 오프셋 재설정 정ㅊ |
+| 옵션명                  | 설명                                                  |
+| ----------------------- | ----------------------------------------------------- |
+| kafka.bootstrap.servers | 카프카 서버                                           |
+| subscribe               | 카프카 토픽(구독할 주체)                              |
+| startingOffsets         | Streaming App이 새로 시작될 때 적용되는 오프셋 재설정 |
+
+| Option            | value                        | default | query type          | meaning |
+| ----------------- | ---------------------------- | ------- | ------------------- | ------- |
+| startingTimestamp | timestamp string e.g. "1000" | none    | streaming and batch |         |
+|                   |                              |         |                     |         |
+|                   |                              |         |                     |         |
+|                   |                              |         |                     |         |
+|                   |                              |         |                     |         |
+|                   |                              |         |                     |         |
+|                   |                              |         |                     |         |
+|                   |                              |         |                     |         |
+|                   |                              |         |                     |         |
+
+
 
 ### Kafka의 고정된 반환 컬럼
 
@@ -47,6 +61,19 @@ df.isStreaming # True
 - timestampType
 
 ### writeStream
+
+```jsx
+(df.writeStream
+		.outputMode('append')
+		.format('parquet')
+		.option('path', target_path)
+		.option('checkpointLocation', '/tmp/checkpoint')
+		.start())
+
+df.stop() # Stop streaming process
+```
+
+
 
 카프카 데이터는 스키마를 확인할 순 있으나 데이터 자체를 `df.show()` 로 출력할 수 없다. 그 대신 console에 출력하는 형태로 값을 확인할 수 있다.
 
