@@ -12,6 +12,7 @@ from pyspark.sql.functions import *
 
 from custom_utils import get_s3_files
 
+
 def main():
     # 전체 로직 플로우를 실행한다.
     amplitude_raw = extract_s3_amplitude_raw()
@@ -31,7 +32,24 @@ def filter_datetime(df, from_datetime, to_datetime):
 def load_to_s3(df, target_path):
     df.write.format('parquet').load(target_path)
     
-    
+     
 if __name__=='__main__':
     main()
 ```
+
+
+
+
+
+### Spark Code on AWS Glue
+
+현재 팀에서 사용하는 Glue Script는 AWS MWAA의 DAG에서 args를 전달하여 사용한다. 이에 위에서 설명한 script와 더불어 추가적으로 args를 전달받는 method를 추가한다.
+
+```python
+... # 위에서 설명한 기본 코드들
+
+
+def parse_args(args: list):
+    return glue_args
+```
+
