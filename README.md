@@ -5,13 +5,13 @@
 ### TODO
 ---
 1. Apache Spark
-    - Structered Streaming
-    - MlLib
+    - Structured Streaming
 2. Apache Airflow
     - Worker, Driver 코드 까기
-    - 추천 영상보고 lib code 확인하기
-3. Apache Flink
-4. Apache Kafka -> Spark Streaming
+3. Apache Kafka
+4. Apache Flink
+5. Databricks Delta Lake
+6. Lake House Architecture
 
 #### Always Learning
 ---
