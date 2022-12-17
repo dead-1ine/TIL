@@ -25,7 +25,16 @@
 1. Hadoop EcoSystem
 2. Streaming Processing
 
+### 개인적인 개발
+
+---
+
+1. App Developement: iOS - Swift
+2. API Server: SpringBoot - Kotlin
+3. API Server: Rocket - Rust
+
 # WANT TO BE
+
 ---
 1. Open Source Contributor(in Apache)
 
