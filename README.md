@@ -48,3 +48,15 @@
 ## TODO
 ---
 - Airflow에서 SageMakerOperator 사용 및 사용법 정리하기
+
+
+
+### 외주 개발 요건
+
+---
+
+- 데이터 크롤링
+    - 크롤러
+    - 웹 스크레이핑
+    - 셀리니움
+    - HTML Parser
