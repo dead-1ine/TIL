@@ -132,3 +132,10 @@ logging.warning('is when this event was logged.')
 01/08/2023 15:23:10 AM is when this event was logged.
 ```
 
+
+
+### References
+
+---
+
+Python Logging Docs: https://docs.python.org/ko/3/howto/logging.html
