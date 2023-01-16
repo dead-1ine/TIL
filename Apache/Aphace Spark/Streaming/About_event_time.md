@@ -46,3 +46,8 @@ perMinuteAvg.writeStream.outputMode("append").format("console").start() // Start
 
 
 
+### References
+
+---
+
+- https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
