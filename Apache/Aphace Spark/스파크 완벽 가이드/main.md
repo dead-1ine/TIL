@@ -1,5 +1,3 @@
-# Spark Feature
-
 [DataFrame](https://www.notion.so/DataFrame-e9acd4feebec4c32942d008d3dea80b5)
 
 [Partition](https://www.notion.so/Partition-f62d818d56a74ccab5bf78c686b8a73a)
@@ -7,6 +5,28 @@
 [Transformation](https://www.notion.so/Transformation-4988dc5000c04091ac6aa7703fd42730)
 
 [NOTEs](https://www.notion.so/NOTEs-de07a371ddd447888151e86b85523860)
+
+### Transformation
+
+------
+
+스파크의 핵심 데이터 구조는 불변성을 가진다. 즉, 한번 생성하면 변경할 수 없다. DataFrame을 변경하려면 원하는 변경 방법을 스파크에 알려줘야 한다. 이 때 사용하는 명령을 트랜스포메이션이라고 한다.
+
+```python
+divis_by2 = df.where('number % 2 = 0')
+```
+
+위 코드를 실행해도 추상적인 트랜스포메이션만 지정한 상태이기 때문에 액션을 호출하지 않으면 스파크는 실제 트랜스포메이션을 수행하지 않는다.
+
+### Transformation Dependency
+
+------
+
+트랜스포메이션은 스파크에서 비즈니스 로직을 표현하는 핵심 개념이며, 두 가지 유형이 존재한다. 하나는 좁은 의존성(narrow dependency)이고 다른 하나는 넓은 의존성(wide dependency)이다.
+
+좁은 의존성을 가진 트랜스포메이션은 각 입력 파티션이 하나의 출력 파티션에만 영향을 미친다. 위 예제의 `where` 구문은 좁은 의존성을 가진다. 따라서 하나의 파티션이 하나의 출력 파티션에만 영향을 미친다.
+
+넓은 의존성을 가진 트랜스포메이션은 하나의 입력 파티션이 여러 출력 파티션에 영향을 미친다. 스파크가 클러스터에서 파티션을 교환하는 셔플이라는 단어를 자주 들었을 것이다. 좁은 트랜스포미메이션을 사용하면 스파크에서 파이프라이닝을 자동으로 수행한다. 즉,  DataFrame에 여러 필터를 지정하는 경우 모든 작업이 메모리에서 발생한다. 하지만 셔플은 다른 방식으로 동작한다. 스파크는 셔플의 결과를 디스크에 저장한다.
 
 ### Lazy Evaluation
 
@@ -151,6 +171,36 @@ DataFrame과 Dataset을 조금 더 구체적으로 정의하려면 ‘스키마�
 
 스키마는 DataFrame의 컬럼명과 데이터 타입을 정의한다. 스키마는 데이터소스에서 얻거나(Schema-on-read) 직접 정의할 수 있다.
 
+스키마는 여러 개의 StructField 타입으로 구성된 StructType 객체이다. StructField는 이름, 데이터 타입, nullable을 지정하는 불리언 값을 가진다. 필요한 경우 컬럼과 관련된 메타데이터를 지정할 수도 있다. 메타데이터는 해당 컬럼과 관련된 정보이며 스파크의 머신러닝 라이브러리에서 사용한다.
+
+스키마는 복합 데이터 타입인 StructType을 가질 수 있다.
+
+스파크는 런타임에 데이터 타입이 스키마의 데이터 타입과 일치하지 않으면 오류를 발생시킨다.
+
+- 스키마를 정의하고 DataFrame에 적용하는 예제
+
+    ```python
+    import pyspark.sql.types import (
+    		StructField, 
+    		StructType, 
+    		StringType, 
+    		LongType)
+    
+    my_manual_schema = StructType([
+    		StructField('DEST_COUNTRY_NAME', StringType(), True),
+    		StructField('ORIGIN_COUNTRY_NAME', StringType(), True),
+    		StructField('count', LongType(), False, metadata={'hello': 'world'})
+    ])
+    
+    df = (spark.read
+    		.format('json')
+    		.schema(my_manual_schema)
+    		.load('/data/flight-data/json/2015-summary.json')
+    )
+    ```
+
+스파크는 자체 데이터 타입 정보를 사용하므로 프로그래밍 언어의 데이터 타입을 스파크의 데이터 타입으로 설정할 수 없다.
+
 ### 스파크의 구조적 데이터 타입 개요
 
 ------
@@ -171,13 +221,36 @@ DataFrame을 사용하면 스파크의 최적화된 내부 포맷을 사용할 �
 
 ------
 
-컬럼은 정수형이나 문자열 같은 **단순 데이터 타입**, 배열이나 맵 같은 **복합 데이터** 타입 ***\**\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*그리고 null을 표현한다.\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\**\***
+컬럼은 정수형이나 문자열 같은 **단순 데이터 타입**, 배열이나 맵 같은 **복합 데이터** 타입 그리고 **null**을 표현한다.
+
+사용자는 표현식으로 DataFrame의 컬럼을 선택, 조작, 제거할 수 있다.
+
+스파크의 컬럼은 표현식을 사용해 레코드 단위로 계산한 값을 단순하게 나타내는 논리적인 구조이다. 따라서 컬럼의 실제값을 얻으려면 로우가 필요하고, 로우를 얻으려면 DataFrame이 필요하다. DataFrame을 통하지 않으면 외부에서 컬럼에 접근할 수 없다. 컬럼 내용을 수정하려면 반드시 DataFrame의 트랜스포메이션을 사용해야 한다.
 
 ### Row
 
 ------
 
 로우는 데이터 레코드이다. DataFrame의 레코드는 Row 타입으로 구성된다. 로우는 SQL, RDD, 데이터소스에서 얻거나 직접 만들 수 있다.
+
+스파크에서 DataFrame의 각 로우는 하나의 레코드이다. 스파크는 레코드를 Row 객체로 표현한다. 스파크는 값을 생성하기 위해 컬럼 표현식으로 Row 객체를 다룬다. Row 객체는 내부에 바이트 배열을 가진다. 이 바이트 배열 인터페이스는 오직 컬럼 표현식으로만 다룰 수 있으므로 사용자에게 절대 노출되지 않는다.
+
+DataFrame을 사용해 드라이버에게 개별 로우를 반환하는 명령은 항상 하나 이상의 Row 타입을 반환한다.
+
+- Row 객체 생성하기
+
+    ```python
+    from pyspark.sql import Row
+    
+    my_row = Row('Hello', None, 1, False)
+    ```
+
+로우의 데이터에 접근하는 방법은 아주 쉽다. 원하는 위치를 지정하기만 하면 된다.
+
+```python
+my_row[0] # Hello
+my_row[2] # 1
+```
 
 ### 스파크 데이터 타입
 
@@ -214,3 +287,32 @@ b = ByteType()
     | MapType                                                      | dict                                                         |
     | StructType                                                   | list, tuple                                                  |
     | StructField                                                  | 이 필드의 데이터 타입과 대응되는 파이썬 데이터 타입이다. 예를 들어 IntegerType을 사용하는 StructField는 파이썬의 int 데이터 타입을 사용한다. |
+
+DataFrame의 파티셔닝은 클러스터에서 물리적으로 배치되는 형태를 정의한다. 파티셔닝 스키마는 파티션을 배치하는 방법을 정의한다. 파티셔닝의 분할 기준은 특정 컬럼이나 비결정론적(매번 변하는) 값을 기반으로 설정할 수 있다.
+
+### Transformation of DataFrame
+
+------
+
+DataFrame을 다루는 방법에 대해 알아본다.
+
+- Create DataFrame
+
+    ```python
+    from pyspark.sql import Row
+    from pyspark.sql.types import (
+    		StructField,
+    		StructType,
+    		StringType,
+    		LongType
+    )
+    
+    my_manual_schema = StructType([
+    		StructField('some', StringType(), True),
+    		StructField('col', StringType(), True),
+    		StructField('names', LongType(), False)
+    ])
+    
+    my_raw = Row('Hello', None, 1)
+    my_df = spark.createDataFrame([my_raw], my_manual_schema)
+    ```
