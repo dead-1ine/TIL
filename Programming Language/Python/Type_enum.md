@@ -25,3 +25,17 @@ for skill in Skill:
 
 
 ### 값 자동 할당
+
+enum을 사용할 때, 많은 경우 value가 무엇인지는 크게 중요하지 않다. 이럴 때는 enum 모듈의 auto() helper함수를 상요하면, 첫 번째 상수에 1, 두 번째 상수에 2, 이렇게 1씩 증가시키면서 모든 상수에 유일한 숫자를 값으로 할당한다.
+
+```python
+from enum import Enum, auto
+
+class Skill(Enum):
+    HTML = auto()
+    CSS = auto()
+    JS = auto()
+```
+
+
+
