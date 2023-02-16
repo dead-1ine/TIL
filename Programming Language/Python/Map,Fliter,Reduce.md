@@ -30,9 +30,24 @@ result # [1, 4, 9]
 
 ### Filter
 
+------
+
+```python
+# filter(function, iterable_obj)
+list(filter(lambda x: x > 0, [1, 2, 3])
+```
+
+- parameter로 받은 iterable_obj의 요소를 하나씩 parameter로 받은 function에 입력하여 True를 리턴하는 요소만 리턴함
+
+### Reduce
+
 ---
 
+```python
+from functools import reduce
 
+reduce(lambda x, y: x + y, [1, 2, 3]) # ((1 + 2) + 3)
+```
 
 
 
