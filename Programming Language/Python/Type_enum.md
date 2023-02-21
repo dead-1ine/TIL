@@ -41,4 +41,18 @@ class Skill(Enum):
 
 뿐만 아니라, `Enum` 클래스의 `_generate_next_value_()` 메서드를 override하면 숫자가 아닌 다른 값을 자동 할당할 수 있다. 예를 들어, 상수의 이름과 동일한 문자열을 상수의 값으로 자동 할당할 수 있다.
 
-## 
+
+
+이럴 때는 enum mixin 기법을 활용하여 `str`을 확장하는 enum 클래스를 작성한다.
+
+```python
+class StrEnum(str, Enum):
+		def _generate_next_value_(name, start, count, last_values):
+				return name
+
+		def __repr(self):
+				return self.name
+	
+		def __str__(self):
+				return self.name
+```
