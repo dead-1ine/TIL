@@ -47,12 +47,29 @@ class Skill(Enum):
 
 ```python
 class StrEnum(str, Enum):
-		def _generate_next_value_(name, start, count, last_values):
-				return name
+    def _generate_next_value_(name, start, count, last_values):
+        return name
 
-		def __repr(self):
-				return self.name
-	
-		def __str__(self):
-				return self.name
+    def __repr(self):
+        return self.name
+
+    def __str__(self):
+        return self.name
 ```
+
+그 다음, 이 클래스를 확장하여 enum 클래스를 정의하면 된다.
+
+```python
+class Skill(StrEnum):
+    HTML = auto()
+    CSS = auto()
+    JS = auto()
+```
+
+이제 `Skill` 타입이 담고 있는 상수는 완벽하게 문자열로 취급하기 때문에 좀 더 편하게 사용할 수 있다.
+
+```python
+Skill.HTML == 'HTML' # True
+isinstance(Skill.HTML, str) # True
+```
+
