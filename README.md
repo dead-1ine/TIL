@@ -28,12 +28,12 @@
 
 ---
 
-1. Web Crawler with FastAPI, Flask
+1. Web Crawler with FastAPI
 
 # WANT TO BE
 
 ---
-1. Open Source Contributor(in Apache)
+1. Open Source Contributor(in Apache Prj)
 
 
 
