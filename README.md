@@ -10,6 +10,7 @@
 2. Apache Airflow
     - Worker, Driver 코드 분석
     - Document 읽기
+    - Airflow 동작 원리에 대해 심플하게 설명하는 글 쓰기
 
 #### Always Learning
 ---
@@ -23,6 +24,7 @@
 1. Hadoop EcoSystem
 2. Streaming Processing
 3. Batch, Streaming Architecture
+4. Docker, K8s
 
 ###  Personal Project
 
