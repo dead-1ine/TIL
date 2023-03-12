@@ -11,6 +11,7 @@
     - Worker, Driver 코드 분석
     - Document 읽기
     - Airflow 동작 원리에 대해 심플하게 설명하는 글 쓰기
+3. AWS Service
 
 #### Always Learning
 ---
