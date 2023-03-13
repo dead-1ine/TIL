@@ -12,7 +12,7 @@
 
     ```python
     import boto3
-    session = boto3.Session(profile_name='name')
+    session = boto3.Session(profile_name='brandi-ad-prd')
     s3 = session.client('s3')
     ```
 
