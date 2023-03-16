@@ -21,20 +21,16 @@
 
 ### Data Engineer RoadMap
 ---
-
 1. Hadoop EcoSystem
 2. Streaming Processing
 3. Batch, Streaming Architecture
 4. Docker, K8s
 
 ###  Personal Project
-
 ---
-
 1. Web Crawler with FastAPI
 
 # WANT TO BE
-
 ---
 1. Open Source Contributor(in Apache Prj)
 
