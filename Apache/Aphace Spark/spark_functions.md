@@ -1,5 +1,6 @@
 * lag
 > `lag(col: ColumnOrName, offset: int = 1, default = Optional[Any] = None) -> col`
+>
 > - Window function: 지정한 `col`의 `offset`만큼 전에 해당하는 row의 col을 반환한다. 만약 이전 값이 없다면 null을 반환하며, `default`를 사용하여 null을 대신하여 특정한 값을 지정할 수 있다.
 
 * lead
@@ -20,3 +21,13 @@
 * exists
 > `exists(col: ColumnOrName, f: Callable[[pyspark.sql.column.Column], pyspark.sql.column.Column]) -> col`
 > - `col`을 기준으로 `f`에 따라 true나 false를 반환한다.
+
+* broadcast
+> `broadcast(df: DataFrame) -> DataFrame`
+> - `df`를 broadcast join으로 사용하도록 명시적으로 선언하는 함수이다. 만약 함수를 사용하지 않을 경우는 `spark.sql.autoBroadcastJoinThreshold` 설정 값을 기준으로 결정되며, 기본값은 10MB이다. DataFrame의 크기가 이 설정 값보다 작을 경우, Spark는 자동으로 브로드캐스트 조인을 수행한다.
+
+* isnan
+> `isnan(col: ColumnOrName) -> Column`
+>
+> - `col`의 값이 NaN일 경우 true, false를 반환한다.
+> - NaN은 Spark의 수치형 타입에서 빈 값을 의미한다.
