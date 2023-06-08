@@ -20,7 +20,7 @@
 
 1. `#!/opt/homebrew/Cellar/pipx/1.2.0/libexec/bin/python3.11`: 이 파일은 경로에 위치한 python3.11을 사용합니다.
 2. `import re`
-3. `import sys`
+3. `import `sys
 4. `from pipx.main import cli`
 5. `if __name__ == '__main__':`
 6. `sys.argv[0] = re.sub(r'(-script/.pyw|\\.exe)?$', '', sys.argv[0])`
@@ -58,6 +58,8 @@ def cli() -> ExitCode:
     finally:
         logger.debug("pipx finished.")
         show_cursor()
+        
+        
 def run_pipx_command(args: argparse.Namespace) -> ExitCode:  # noqa: C901
     verbose = args.verbose if "verbose" in args else False
     pip_args = get_pip_args(vars(args))

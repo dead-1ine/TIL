@@ -7,6 +7,7 @@
 1. Apache Spark
 2. Apache Airflow
     - Airflow 동작 원리에 대해 심플하게 설명하는 글 쓰기
+    - Code를 까보며 직접적인 동작 원리에 대해 이해하기
 3. AWS Service
 
 #### Always Learning
@@ -24,13 +25,12 @@
 
 ###  Personal Project
 ---
-1. Web Crawler with FastAPI
+1. Job Description Crawling
 
 # WANT TO BE
 ---
-1. Open Source Contributor(in Apache Prj)
-
-
+1. Open Source Contributor
+    - Apache Airflow
 
 
 ## 한국 데이터 엔지니어 모임
