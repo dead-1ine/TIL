@@ -6,9 +6,12 @@
 ---
 1. VIM
 2. Apache Airflow
-    - Airflow 동작 원리에 대해 심플하게 설명하는 글 쓰기
     - Code를 까보며 직접적인 동작 원리에 대해 이해하기
 3. Open Source를 하나씩 까보며 내부 동작 원리와 설계를 이해하기
+4. Blog에 글 발행하기
+    1. Open Source 중 쉬운 라이브러리의 동작 원리 살펴보기
+    2. pipx 명령어 중 ensurepath는 어떻게 동작하는가?
+    3. Airflow Worker에 실제 Task가 어떤 원리로 할당되는가? 할당된 Task는 어떤 식으로 종료를 표현하는가?
 
 #### Always Learning
 ---
