@@ -98,7 +98,7 @@ if self.wait_for_completion:
 
 - AwsGlueJobHook의 job_completion()의 내부 로직
     - job_completion
-        
+      
         ```python
         def job_completion(self, job_name: str, run_id: str) -> Dict[str, str]:
             failed_states = ['FAILED', 'TIMEOUT']
@@ -116,7 +116,7 @@ if self.wait_for_completion:
         ```
         
     - get_job_state
-        
+      
         ```python
         def get_job_state(self, job_name: str, run_id: str) -> str:
             glue_client = self.get_conn()
