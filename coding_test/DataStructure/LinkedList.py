@@ -1,36 +1,36 @@
 class Node:
-    def __init__(self, data):
-        self.data = data
+    def __init__(self):
+        self.previous = None
+        self.data = None
         self.next = None
 
 
 class LinkedList:
     def __init__(self):
-        self.head = None
+        self.header = None  # 첫 번째 Node를 가리킴
+        self.tail = None  # 마지막 Node를 가리킴
 
-    def append(self, data):
-        new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            return
-        last_node = self.head
-        while last_node.next:
-            last_node = last_node.next
-        last_node.next = new_node
+    def add(self, data):
+        # 새로운 노드를 추가하고 값을 저장
+        new_node = Node()
+        new_node.data = data
+        new_node.next = None
 
-    def print_list(self):
-        cur_node = self.head
-        while cur_node:
-            print(cur_node.data, end=" -> ")
-            cur_node = cur_node.next
-        print("None")
+        if self.header is None:
+            self.header = new_node
+            self.tail= new_node
+
+        self.tail.next = new_node
+        self.tail = new_node
+
+    def remove_last_node(self):
 
 
-# 사용 예제
-llist = LinkedList()
-llist.append(1)
-llist.append(2)
-llist.append(3)
-llist.append(4)
 
-llist.print_list()
+
+
+ll = LinkedList()
+ll.add(1)
+ll.add(2)
+ll.add(3)
+print(ll.pointer.next)
