@@ -5,7 +5,7 @@ class ListNode:
         self.prev = prev
 
 
-class sdlfkjBrowserHistory:
+class BrowserHistory:
     def __init__(self, homepage):
         self.head = self.current = ListNode(val=homepage)
 
@@ -15,7 +15,7 @@ class sdlfkjBrowserHistory:
         return None
 
     def back(self, steps):
-        while steps > 0 and self.current.prev is not None:kk
+        while steps > 0 and self.current.prev is not None:
             steps -= 1
             self.current = self.current.prev
         return self.current.val
