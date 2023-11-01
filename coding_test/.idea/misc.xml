@@ -4,4 +4,7 @@
     <option name="sdkName" value="local-python3" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="local-python3" project-jdk-type="Python SDK" />
+  <component name="TaskProjectConfiguration">
+    <server type="JIRA" url="https://brandiinc.atlassian.net" />
+  </component>
 </project>
