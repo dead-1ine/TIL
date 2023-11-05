@@ -12,6 +12,8 @@ def solution(s):
 	return not stack
 
 
-print(solution('{}{}()[]()'))
+print(solution('{[()]}'))
 
-print(solution('{]})'))
+# print(solution('{}{}()[]()'))
+#
+# print(solution('{]})'))
