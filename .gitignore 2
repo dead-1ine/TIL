@@ -1,5 +1,0 @@
-*.plist
-.vscode/
-
-# Mac
-.DS_Store
